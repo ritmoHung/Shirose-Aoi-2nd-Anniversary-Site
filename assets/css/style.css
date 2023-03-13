@@ -51,6 +51,11 @@ body {
     background: var(--color-light-blue);
     scroll-behavior: smooth;
 }
+@media screen and (max-width: 480px) {
+    body {
+        font-size: 0.9rem;
+    }
+}
 
 /* Pre-loader */
 .preloader {
@@ -216,11 +221,12 @@ body {
         --inset-width: -2.5rem;
     }
 }
-@media screen and (max-width: 420px) {
+/* TODO: Do I need this?
+@media screen and (max-width: 359px) {
     .main-header {
         outline: none;
     }
-}
+} */
 
 .main-article {
     display: grid;
@@ -351,16 +357,18 @@ body {
         width: 100%;
     }
 }
-@media screen and (max-width: 576px) and (min-width: 420px) {
+@media screen and (max-width: 576px) and (min-width: 359px) {
     .card-list {
         grid-template-columns: 1fr;
     }
     .card {
         max-height: calc(5 * var(--card-radius));
+        min-width: 280px;
         flex-direction: row;
         place-content: flex-start;
     }
     .card > *:first-child {
+        aspect-ratio: 2 / 3;
         height: 100%;
         width: auto;
     }
@@ -375,12 +383,15 @@ body {
         text-align: justify;
     }
 }
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 359px) {
     .card-list {
         grid-template-columns: 1fr;
     }
     .card {
-        min-width: 240px !important;
+        width: 240px !important;
+    }
+    .card > *:first-child {
+        aspect-ratio: 3 / 2;
     }
 }
 
@@ -414,19 +425,19 @@ body {
 .heading {
     font-family: 'Caveat', cursive;
     font-weight: 700;
-    font-size: 6rem;
+    font-size: 6em;
 }
 
 .subheading {
     font-weight: 500;
-    font-size: 2.5rem;
+    font-size: 2.5em;
 }
 
 .title {
     display: inline-flex;
     position: relative;
     font-weight: 500;
-    font-size: 2rem;
+    font-size: 2em;
 }
 .title:after {
     --height: 0.1em;
@@ -443,28 +454,28 @@ body {
 
 .title-sm {
     font-weight: 700;
-    font-size: 1.5rem;
+    font-size: 1.5em;
 }
 
 @media screen and (max-width: 992px) {
     .heading {
-        font-size: 4.2rem;
+        font-size: 4.2em;
     }
     .subheading {
-        font-size: 2rem;
+        font-size: 2em;
     }
 }
 @media screen and (max-width: 768px) {
     .heading {
-        font-size: 3.6rem;
+        font-size: 3.6em;
     }
     .subheading {
-        font-size: 1.6rem;
+        font-size: 1.6em;
     }
 }
 @media screen and (max-width: 576px) {
     .heading {
-        font-size: 3rem;
+        font-size: 3em;
     }
 }
 
