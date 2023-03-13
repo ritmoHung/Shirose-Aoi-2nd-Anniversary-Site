@@ -22,7 +22,7 @@
     --color-light-blue: #ADD9F4;   /* Uranian Blue */
     --color-medium-blue: #4EA5D9;  /* Picton Blue */
     --color-deep-blue: #40618C;    /* Lapis Lazuli */
-    --color-sunset: #111;
+    --color-sunset: rgb(255, 158, 94, 0.5);  /* #FF9E5E */
 }
 :root {
     --bg-color: var(--color-light-blue);
@@ -40,8 +40,9 @@
 body {
     overflow-x: hidden;
     overflow-y: overlay;
+    /* ! Affects mobiles other than iPhone??
     padding-left: env(safe-area-inset-left);
-    padding-right: env(safe-area-inset-right);
+    padding-right: env(safe-area-inset-right); */
 
     color: var(--color-white);
     font-family: 'Zen Maru Gothic', sans-serif;
@@ -172,9 +173,9 @@ body {
     /* TODO: Figure out how to offset posX */
     place-content: center;
     grid-template-areas: "stack";
-
+    
     background: url('../favicon.svg') center, var(--bg-color);
-    background-size: 2rem;
+    background-size: 1rem;
     outline: var(--text-color) 0.15rem solid;
     outline-offset: var(--inset-width);
 }
@@ -183,6 +184,9 @@ body {
 }
 .main-header > *:is(img) {
     grid-area: stack;
+    /* ? IDK why this set works but congrats */
+    width: 100vw;
+    height: 100vh;
     object-fit: cover;
     pointer-events: none;
 }
@@ -246,7 +250,8 @@ body {
 
 .footer-section {
     height: 5rem;
-    padding-bottom: env(safe-area-inset-bottom);
+    /* ! Affects mobiles other than iPhone??
+    padding-bottom: env(safe-area-inset-bottom); */
 
     display: grid;
     place-content: center;
@@ -515,7 +520,7 @@ img.emoji {
 }
 
 .text-shadow {
-    text-shadow: 0.1em 0.1em 0.3em var(--shadow-color);
+    text-shadow: 0.2em 0.2em 1.5em var(--shadow-color);
 }
 
 /* Transitions */
