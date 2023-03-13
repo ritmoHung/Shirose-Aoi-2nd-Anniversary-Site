@@ -1,0 +1,5 @@
+# Ignore original assets / references
+materials/
+
+# Ignore worklist
+todo.md

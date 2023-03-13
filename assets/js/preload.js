@@ -24,16 +24,13 @@ function getScrollYMax() {
 
 const navBG = () => {
     var navbar = document.getElementById('main-navbar');
-    var navbarBreakpoint = vh(30);
+    var navbarBreakpoint = vh(40);
 
     if(window.scrollY < navbarBreakpoint) {
-        navbar.style.backgroundColor = 'transparent';
-        navbar.classList.remove('neumorphism');
+        navbar.style.opacity = 0;
     }
     else {
-        navbar.style.backgroundColor = 'var(--navbar-color)';
-        navbar.classList.add('neumorphism');
+        navbar.style.opacity = 1;
     }
 }
-
 window.addEventListener('scroll', navBG);
