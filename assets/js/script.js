@@ -23,7 +23,7 @@ const tachieSizing = () => {
     }
     else {
         for(var index = 0; index < tachieContainers.length; index++) {
-            tachieContainers[index].style.transform = "scale(1)";
+            tachieContainers[index].style.transform = "none";
         }
     }
 }
