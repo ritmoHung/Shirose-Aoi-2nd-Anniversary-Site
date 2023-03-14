@@ -22,3 +22,22 @@ const scrollDownArrowVis = () => {
     }
 }
 window.addEventListener('scroll', scrollDownArrowVis);
+
+
+
+// Parallax
+let mouse = {
+    x : 0,
+    y : 0,
+}
+
+window.addEventListener('mousemove',(event) => {
+  mouse.x = event.pageX;
+  mouse.y = event.pageY;
+})
+
+const parallaxHeader = () => {
+    var tachieBGTop = document.getElementById('tachieBGTop');
+    var tachieBGTop = document.getElementById('tachieBGBottom');
+    var tachieBGTop = document.getElementById('tachie');
+}
