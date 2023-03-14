@@ -179,7 +179,7 @@ body {
 
     background: url('../favicon.svg') center, var(--bg-color);
     background-size: 1rem;
-    pointer-events: none;
+    
 }
 .tachie-container {
     width: 100%;

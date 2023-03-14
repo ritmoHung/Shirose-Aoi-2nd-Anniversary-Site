@@ -61,6 +61,9 @@ window.addEventListener('mousemove', tachieParallax);
 
 
 // Arrow: Scroll Down Indicator
+const scrollDown = () => {
+    document.documentElement.scrollTop = vh(100);
+}
 const scrollDownArrowVis = () => {
     var arrow = document.getElementById('scrollDownArrow');
     var arrowBreakpoint = vh(40);
