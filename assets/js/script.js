@@ -27,17 +27,28 @@ window.addEventListener('scroll', scrollDownArrowVis);
 
 // Parallax
 let mouse = {
-    x : 0,
-    y : 0,
+    x: 0,
+    y: 0,
 }
 
-window.addEventListener('mousemove',(event) => {
-  mouse.x = event.pageX;
-  mouse.y = event.pageY;
-})
+function MousePosition() {
+    mouse.x = event.pageX;
+    mouse.y = event.pageY;
+}
 
 const parallaxHeader = () => {
+    MousePosition();
     var tachieBGTop = document.getElementById('tachieBGTop');
-    var tachieBGTop = document.getElementById('tachieBGBottom');
-    var tachieBGTop = document.getElementById('tachie');
+    var tachieBGBottom = document.getElementById('tachieBGBottom');
+    var tachie = document.getElementById('tachie');
+    var parallaxBreakpoint = vh(100);
+
+    if(window.scrollY < parallaxBreakpoint) {
+        var dx = mouse.x - vw(50);
+        console.log(mouse.x, dx);
+        tachieBGTop.style.left = dx + "px";
+        tachieBGBottom.style.left = dx + "px";
+        tachie.style.left = dx + "px";
+    }
 }
+window.addEventListener('mousemove', parallaxHeader);

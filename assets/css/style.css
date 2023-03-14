@@ -173,7 +173,8 @@ body {
 
     display: grid;
     position: relative;
-    overflow: hidden;
+    /* * Temp hide
+    overflow: hidden; */
     place-items: center;
     /* TODO: Figure out how to offset posX */
     place-content: center;
@@ -181,16 +182,13 @@ body {
     
     background: url('../favicon.svg') center, var(--bg-color);
     background-size: 1rem;
-    outline: var(--text-color) 0.15rem solid;
-    outline-offset: var(--inset-width);
 }
-.main-header > * {
-    pointer-events: none;
-}
+/* Pointer Events */
+
 .main-header > *:is(img) {
-    grid-area: stack;
-    /* ? IDK why this set works but congrats */
-    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
     height: 100vh;
     object-fit: cover;
     pointer-events: none;
@@ -198,6 +196,23 @@ body {
 #tachie {
     z-index: 1;
 }
+
+.headings {
+    display: grid;
+    position: absolute;
+    top: 25%;
+    text-align: center;
+    font-style: italic;
+    transform: skewY(-7deg);
+}
+.header-frame {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    outline: var(--text-color) 0.15rem solid;
+    outline-offset: var(--inset-width);
+}
+
 #scrollDownArrow {
     position: absolute;
     bottom: calc(-1 * var(--inset-width) + 2rem);
@@ -221,12 +236,6 @@ body {
         --inset-width: -2.5rem;
     }
 }
-/* TODO: Do I need this?
-@media screen and (max-width: 359px) {
-    .main-header {
-        outline: none;
-    }
-} */
 
 .main-article {
     display: grid;
@@ -266,15 +275,6 @@ body {
 }
 
 /* -------------------------- STRUCT -------------------------- */
-
-.headings {
-    display: grid;
-    position: absolute;
-    top: 25%;
-    text-align: center;
-    font-style: italic;
-    transform: skewY(-7deg);
-}
 
 /* Cards */
 .card-list {
@@ -538,7 +538,10 @@ img.emoji {
 .transition {
     transition: all ease-in-out var(--trans-duration) !important;
 }
-.navbar, .nav-link, .nav-link::after, #scrollDownArrow, .card, .card::after, .btn {
+.navbar, .nav-link, .nav-link::after, 
+.main-header > *:is(img), #scrollDownArrow, 
+.card, .card::after, 
+.btn {
     transition: all ease-in-out var(--trans-duration) !important;
 }
 .transition-none {
