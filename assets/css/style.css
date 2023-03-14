@@ -165,6 +165,12 @@ body {
     }
 }
 
+/* particle.js */
+#particles-js {
+    height: 100%;
+    pointer-events: none;
+}
+
 .main-header {
     --inset-width: -3rem;
     width: 100vw;
@@ -188,6 +194,17 @@ body {
     place-content: center;
 }
 .tachie-container img {
+    --filter-120: brightness(1.06) contrast(1.2);
+    --filter-100: brightness(1.05) contrast(1.1);
+    --filter-80: brightness(1.04) contrast(1.08);
+    --filter-60: brightness(1.03) contrast(1.06);
+    --filter-40: brightness(1.02) contrast(1.04);
+    --filter-20: brightness(1.01) contrast(1.02);
+    --filter-10: brightness(1.005) contrast(1.01);
+    --filter-n20: brightness(0.99) contrast(0.98);
+    --filter-n40: brightness(0.98) contrast(0.96);
+    --filter-n60: brightness(0.97) contrast(0.94);
+
     overflow-y: visible;
     position: absolute;
     height: 100vh;
@@ -197,6 +214,37 @@ body {
     transition: all var(--trans-duration) ease-out;
     pointer-events: none;
 }
+#tachieBGTop {
+    filter: brightness(1) contrast(1);
+    animation: flare-sm 10s ease-in-out infinite;
+}
+#tachieBGBottom, #tachie {
+    
+
+    filter: brightness(1) contrast(1);
+    animation: flare-lg 10s ease-in-out infinite;
+}
+@keyframes flare-sm {
+    0% { filter: initial; }
+    20% { filter: var(--filter-10); }
+    30% { filter: var(--filter-60); }
+    37.5% { filter: var(--filter-60); }
+    42.5% { filter: var(--filter-40); }
+    45% { filter: var(--filter-60); }
+    70% { filter: var(--filter-n40); }
+    100% { filter: initial; }
+}
+@keyframes flare-lg {
+    0% { filter: initial; }
+    20% { filter: var(--filter-20); }
+    30% { filter: var(--filter-120); }
+    37.5% { filter: var(--filter-120); }
+    42.5% { filter: var(--filter-80); }
+    45% { filter: var(--filter-100); }
+    70% { filter: var(--filter-n60); }
+    100% { filter: initial; }
+}
+
 .headings {
     display: grid;
     position: absolute;
@@ -205,6 +253,7 @@ body {
     font-style: italic;
     transform: skewY(-7deg);
 }
+
 .header-frame {
     position: absolute;
     width: 100%;
@@ -514,6 +563,8 @@ body {
 }
 
 /* -------------------------- OTHERS -------------------------- */
+
+
 
 /* Twemoji style */
 img.emoji {
