@@ -33,68 +33,50 @@ window.addEventListener('resize', tachieSizing);
 
 
 // Parallax
-let mouse = {
-    x: 0,
-    y: 0,
-};
-
-var hasGyro = false;
-let rotate = {
-    alpha: 0,
-    beta: 0,
-    gamma: 0,
-};
-
+var enableOnGyro = false;
 var tachieBGTop = document.getElementById('tachieBGTop');
 var tachieBGBottom = document.getElementById('tachieBGBottom');
 var tachie = document.getElementById('tachie');
 
-function getMousePosX() {
-    mouse.x = event.pageX;
-}
-function requestMotionPermission() {
-    // Request permission for iOS 13+ devices
-    if( DeviceMotionEvent &&
-        typeof DeviceMotionEvent.requestPermission === "function") {
-            DeviceMotionEvent.requestPermission();
+const requestMotionPermission = () => {
+    if(window.DeviceOrientationEvent && 
+        (event.rotationRate.alpha || event.rotationRate.beta || event.rotationRate.gamma)) {
+        enableOnGyro = true;
+        // Request permission for iOS 13+ devices
+        if( DeviceMotionEvent &&
+            typeof DeviceMotionEvent.requestPermission === "function") {
+                DeviceMotionEvent.requestPermission();
+        }
     }
 }
-function getGyro() {
-    if(event.rotationRate.alpha || event.rotationRate.beta || event.rotationRate.gamma) {
-        hasGyro = true;
-    }
-}
-function getRotateAlpha() {
-    rotate.alpha = event.alpha;
-}
-window.addEventListener('devicemotion', getGyro);
 
 const tachieParallaxOnGyro = () => {
     var parallaxBreakpoint = vh(100);
 
     if(window.scrollY < parallaxBreakpoint) {
-        getRotateAlpha();
+        var rotateBeta = event.beta;
         var optDX = 0;
-        console.log(rotate.alpha);
+        console.log(rotateBeta);
     }
 }
+
 const tachieParallaxOnMouse = () => {
     var parallaxBreakpoint = vh(100);
 
     if(window.scrollY < parallaxBreakpoint) {
-        getMousePosX();
-        var optDX = 0.01 * (mouse.x - vw(50));
+        var mouseX = event.pageX;
+        var optDX = 0.01 * (mouseX - vw(50));
         tachieBGTop.style.transform = "translateX(" + -optDX + "px" + ")";
         tachieBGBottom.style.transform = "translateX(" + 2 * optDX + "px" + ")";
         tachie.style.transform = "translateX(" + 3 * optDX + "px" + ")";
     }
 }
 window.addEventListener('load', requestMotionPermission);
-window.addEventListener('devicemotion', function(event) {
-    if(hasGyro) tachieParallaxOnGyro();
+window.addEventListener('deviceorientation', function(event) {
+    if(enableOnGyro) tachieParallaxOnGyro();
 });
 window.addEventListener('mousemove', function(event) {
-    if(!hasGyro) tachieParallaxOnMouse();
+    if(!enableOnGyro) tachieParallaxOnMouse();
 });
 
 
