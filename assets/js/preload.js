@@ -30,6 +30,7 @@ const navBG = () => {
     var navbar = document.getElementById('main-navbar');
     var navbarBreakpoint = vh(40);
 
+    // ! navbar-items still clickable
     if(window.scrollY < navbarBreakpoint) {
         navbar.style.opacity = 0;
     }
@@ -37,4 +38,16 @@ const navBG = () => {
         navbar.style.opacity = 1;
     }
 }
+const fabVis = () => {
+    var fabs = document.getElementById('main-fab');
+    var fabBreakpoint = vh(40);
+
+    if(window.scrollY < fabBreakpoint || window.scrollY > (getScrollYMax() - vh(10))) {
+        fabs.classList.remove('fade-in');
+    }
+    else {
+        fabs.classList.add('fade-in');
+    }
+}
 window.addEventListener('scroll', navBG);
+window.addEventListener('scroll', fabVis);

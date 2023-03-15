@@ -40,7 +40,7 @@
 body {
     overflow-x: hidden;
     overflow-y: overlay;
-    /* ! This disables pixel-ratio
+    /* ! viewport-fit: cover disables pixel-ratio
     padding-left: env(safe-area-inset-left);
     padding-right: env(safe-area-inset-right); */
 
@@ -144,7 +144,7 @@ body {
     color: var(--color-light-blue);
     fill: var(--color-light-blue);
 }
-.nav-link:hover::after{
+.nav-link:hover::after {
     transform: scale(1, 1);
 }
 .nav-link:active {
@@ -155,6 +155,24 @@ body {
     background: var(--highlight-color);
 }
 
+/* Container for FABs at bottom right corner */
+.fab-container {
+    --width: 4rem;
+
+    width: var(--width);
+    display: grid;
+    position: fixed;
+    bottom: var(--gap-4);
+    right: var(--gap-4);
+    z-index: 1000;
+    place-content: center;
+    place-items: center;
+    row-gap: var(--gap-3);
+
+    opacity: 0%;
+    visibility: hidden;
+}
+
 @media screen and (max-width: 576px) {
     .navbar {
         --margin: 0.9rem;
@@ -163,12 +181,25 @@ body {
     .navbar-brand {
         font-size: 1.5rem;
     }
+    .fab-container {
+        bottom: 1.6rem;
+        right: 1.6rem;
+        transform: scale(85%);
+    }
 }
 
-/* particle.js */
-#particles-js {
+/* tsParticles */
+#snowflakes {
     height: 100%;
     pointer-events: none;
+}
+#snowflakes-behind {
+    position: absolute;
+    top: 0;
+    height: 60%;
+    z-index: 0;
+    pointer-events: none;
+    filter: blur(3px);
 }
 
 .main-header {
@@ -467,16 +498,42 @@ body {
     border: none !important;
 }
 .btn:hover {
+    color: var(--color-light-blue);
+    fill: var(--color-light-blue);
+    background: inherit;
+    border: inherit;
+    outline: inherit;
+}
+.btn:active {
     color: var(--highlight-color);
     fill: var(--highlight-color);
     background: inherit;
     border: inherit;
     outline: inherit;
 }
-.btn:active {
-    background: inherit;
-    border: inherit;
-    outline: inherit;
+
+/* Floating action button */
+.btn-fab {
+    --fab-content-size: 36px;
+    aspect-ratio: 1 / 1;
+    width: inherit;
+    
+    background: var(--navbar-color) !important;
+    border-radius: 50%;
+    border: none;
+}
+.btn-fab svg {
+    height: var(--fab-content-size);
+    width: auto;
+}
+.btn-fab:active {
+    transform: scale(90%);
+}
+input[type=checkbox] {
+    height: 0;
+	width: 0;
+    display: none;
+	visibility: hidden;
 }
 
 /* Text */
@@ -598,10 +655,10 @@ img.emoji {
 .transition {
     transition: all ease-in-out var(--trans-duration) !important;
 }
-.navbar, .nav-link, .nav-link::after, 
+.navbar, .nav-link, .nav-link::after, .fab-container, 
 #scrollDownArrow, 
 .card, .card::after, 
-.btn {
+.btn, .btn > * {
     transition: all ease-in-out var(--trans-duration) !important;
 }
 .transition-none {

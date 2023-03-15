@@ -1,4 +1,3 @@
-// Twemoji
 const emo = () => {
     twemoji.parse(document.body, {
         folder: "svg", 
@@ -55,8 +54,12 @@ const tachieParallaxOnGyro = () => {
 
     if(window.scrollY < parallaxBreakpoint) {
         var rotateGamma = event.gamma;
-        var optDX = 0.1 * (rotateGamma % 360);
+        var optDX = 5 * (rotateGamma % 360);
         console.log(optDX);
+        // * To be optimized
+        tachieBGTop.style.transform = "translateX(" + -optDX + "px" + ")";
+        tachieBGBottom.style.transform = "translateX(" + 2 * optDX + "px" + ")";
+        tachie.style.transform = "translateX(" + 3 * optDX + "px" + ")";
     }
 }
 
@@ -101,7 +104,29 @@ window.addEventListener('scroll', scrollDownArrowVis);
 
 
 
-/* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
-particlesJS.load('particles-js', './assets/js/particles-config.json', function() {
-    console.log('callback - particles.js config loaded');
-});
+const muteToggle = () => {
+    var muteBtn = document.getElementById('mute-btn');
+    var muteBtnIcon = document.getElementById('mute-btn-icon');
+    if(muteBtn.checked) {
+        muteBtnIcon.textContent = "volume_mute";
+    }
+    else {
+        muteBtnIcon.textContent = "volume_up";
+    }
+}
+
+
+
+// ? particles.js, cannot get tsParticles to work :(
+particlesJS.load('snowflakes', './assets/js/particles-config.json');
+particlesJS.load('snowflakes-behind', './assets/js/particles-config.json');
+
+const snowflakeBehindVis = () => {
+    if(window.scrollY > vh(60)) {
+        var snowflakeBehind = document.getElementById('snowflakes-behind');
+        snowflakeBehind.style.display = "none";
+    }
+    else {
+        snowflakeBehind.style.display = "initial";
+    }
+}

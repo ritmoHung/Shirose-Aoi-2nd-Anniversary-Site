@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- ! Affects mobiles other than iPhone??
+    <!-- ! Affects mobiles other than iPhone
     <meta name="viewport" content="viewport-fit=cover"> -->
     <title>白瀬あおい二周年記念ウェブ</title>
 
@@ -29,7 +29,7 @@
     </div>
 
     <!-- Snowflake particles -->
-    <div id="particles-js" class="fixed-top"></div>
+    <div id="snowflakes" class="fixed-top"></div>
     
     <!-- Navigator -->
     <nav id="main-navbar" class="navbar navbar-expand-sm fixed-top text-center" data-spy="affix">
@@ -54,6 +54,14 @@
         </button>
     </nav>
 
+    <!-- FABs -->
+    <div id="main-fab" class="fab-container">
+        <label for="mute-btn" class="btn btn-fab" onclick="muteToggle()">
+            <input id="mute-btn" type="checkbox" />
+            <span id="mute-btn-icon" class="material-symbols-rounded">volume_up</span>
+        </label>
+    </div>
+
     <div class="main-layout">
         <!-- * Header -->
         <header class="main-header">
@@ -62,6 +70,8 @@
                 <img id="tachieBGBottom" src="./assets/img/tachie/tachie-bg-bottom.webp" alt="Sea BG for tachie" />
                 <img id="tachieBGTop" src="./assets/img/tachie/tachie-bg-top.webp" alt="Sky BG for tachie" />
             </div>
+            <!-- Snowflake particles -->
+            <div id="snowflakes-behind" class="fixed-top"></div>
             <!-- Heading Text -->
             <div class="headings text-shadow px-5">
                 <h1 class="heading">Happy 2nd Anniversary!</h1>
@@ -73,83 +83,137 @@
             <div class="tachie-container">
                 <img id="tachie" src="./assets/img/tachie/tachie.webp" alt="Tachie" />
             </div>
-            
             <button type="button" class="btn" onclick="scrollDown()">
                 <span id="scrollDownArrow" class="material-symbols-rounded">keyboard_double_arrow_down</span>
             </button>
         </header>
 
-        
-        
         <!-- * Main -->
         <main class="container-fluid p-5">
             <div class="main-article">
+                <!-- ? Duplicate data of https://yosetti.com/mainyosegakis/invite?id=2364002&sc=OL1JK -->
                 <section id="messages">
                     <h2 class="title">メッセージ</h2>
                     <div class="card-list">
                         <button type="button" class="card">
-                            <img src="./assets/img/participants/kemi.webp" alt="tbd" />
+                            <img src="./assets/img/participants/kemi.webp" alt="Kemi icon" />
                             <div class="card-content">
                                 <span class="title-sm">けみ</span>
-                                <span class="os-text-grey">仮...?</span>
+                                <span>仮</span>
                             </div>
                         </button>
+
+                        <button type="button" class="card">
+                            <img src="./assets/img/participants/azunyan.webp" alt="Azunyan icon" />
+                            <div class="card-content">
+                                <span class="title-sm">あずにゃん</span>
+                                <span>2 周年おめでとうございます (*´꒳`*ﾉﾉﾞ ﾊﾟﾁﾊﾟﾁ切れ味のあるツッコミ、美味すぎるお歌、綺麗な声、No. 1 シロクマはあおちゃんだー！いつかアルバム出して～！</span>
+                            </div>
+                        </button>
+
+                        <button type="button" class="card">
+                            <img src="./assets/img/participants/kasukedo.webp" alt="Kasukedo icon" />
+                            <div class="card-content">
+                                <span class="title-sm">かすけーど</span>
+                                <span>2 周年おめでとうございます！2 周年目にあたるこの日にあおちゃんの推しでいられる事がとても幸せです。もっと上へ上へ飛躍の年でありますように。応援頑張ります！！</span>
+                            </div>
+                        </button>
+                        
+                        <button type="button" class="card">
+                            <img src="./assets/img/participants/barunikomiudon.webp" alt="Baru nikomi udon icon" />
+                            <div class="card-content">
+                                <span class="title-sm">ばる煮込みうどん</span>
+                                <span>活動 2 周年おめでとうございます。あおいさんの活動への真摯な思いと熱意が、永く先の見えない社畜活動の原動力になってます。これからも応援していきます。</span>
+                            </div>
+                        </button>
+
+                        <button type="button" class="card">
+                            <img src="./assets/img/participants/kumanonakanohito.webp" alt="Kuma no naka no hito icon" />
+                            <div class="card-content">
+                                <span class="title-sm">熊の中の人</span>
+                                <span>あおいさんへ、2 周年というめでたい日をこうして祝わせてくださりありがとうございます。これからも進む先に光が満ちていることを願い、応援させていただきます！</span>
+                            </div>
+                        </button>
+
                         <button type="button" class="card">
                             <img src="./assets/img/participants/okome.webp" alt="Okome icon" />
                             <div class="card-content">
                                 <span class="title-sm">お米</span>
-                                <span class="os-text-grey">
-                                    デビュー 2 周年おめでとう！たくさん思い出ができた 2 年目たっだね。あおちゃんが頑張っでくれたおかけで楽しい 1 年間を過ごせだよ。3 年目も推していくのでよろしくね！
-                                </span>
+                                <span>デビュー 2 周年おめでとう！たくさん思い出ができた 2 年目だったね。あおちゃんが頑張ってくれたおかけで楽しい 1 年間を過ごせだよ。3 年目も推していくのでよろしくね！</span>
                             </div>
                         </button>
+                        
                         <button type="button" class="card">
-                            <img src="./assets/img/participants/ritmo.webp" alt="Azu chan icon" />
-                            <div class="card-content">
-                                <span class="title-sm">あずにゃん</span>
-                                <span class="os-text-grey">2 周年おめでとうございます (顔文字) ﾊﾟﾁﾊﾟﾁ切れ味のあるツッコミ、美味すきるお歌、綺麗な声、No. 1 シコルマはあおちゃんだー！いつかアルバム出して～！</span>
-                            </div>
-                        </button>
-                        <button type="button" class="card">
-                            <img src="./assets/img/participants/ritmo.webp" alt="popopoimin icon" />
+                            <img src="./assets/img/participants/popopoimin.webp" alt="popopoimin icon" />
                             <div class="card-content">
                                 <span class="title-sm">popopoimin</span>
-                                <span class="os-text-grey">あおちゃん、2 周年おめでとうございます！キラキラした思い出が沢山の 1 年でした。これからも飛越していくあおいさんを應援してます！3 年目もよろしくね～</span>
+                                <span>あおいさん、2 周年おめでとうございます！キラキラした思い出が沢山の 1 年でした。これからも飛躍していくあおいさんを応援してます！3 年目もよろしくね～</span>
+                            </div>
+                        </button>
+                        
+                        <button type="button" class="card">
+                            <img src="./assets/img/participants/gyakusan.webp" alt="Gyakusan icon" />
+                            <div class="card-content">
+                                <span class="title-sm">逆参</span>
+                                <span>二周年おめでとうございます！ここまで諦めという名の病に負けず、良く頑張ってきたね。色んな景色を見せてもらったわ。これからも新しい景色を見に行こうか。</span>
+                            </div>
+                        </button>
+
+                        <!-- TODO: Copy-paste data -->
+                        <button type="button" class="card">
+                            <img src="./assets/img/participants/ritmo.webp" alt="Who's icon" />
+                            <div class="card-content">
+                                <span class="title-sm">リツモ</span>
+                                <span>あいうえお</span>
                             </div>
                         </button>
                         <button type="button" class="card">
-                            <img src="./assets/img/participants/ritmo.webp" alt="Ritmo icon" />
+                            <img src="./assets/img/participants/ritmo.webp" alt="Who's icon" />
                             <div class="card-content">
                                 <span class="title-sm">リツモ</span>
-                                <span class="os-text-grey">あはは</span>
+                                <span>あいうえお</span>
                             </div>
                         </button>
                         <button type="button" class="card">
-                            <img src="./assets/img/participants/ritmo.webp" alt="tbd" />
+                            <img src="./assets/img/participants/ritmo.webp" alt="Who's icon" />
                             <div class="card-content">
                                 <span class="title-sm">リツモ</span>
-                                <span class="os-text-grey">あはは</span>
+                                <span>あいうえお</span>
                             </div>
                         </button>
                         <button type="button" class="card">
-                            <img src="./assets/img/participants/ritmo.webp" alt="tbd" />
+                            <img src="./assets/img/participants/ritmo.webp" alt="Who's icon" />
                             <div class="card-content">
                                 <span class="title-sm">リツモ</span>
-                                <span class="os-text-grey">あはは</span>
+                                <span>あいうえお</span>
                             </div>
                         </button>
                         <button type="button" class="card">
-                            <img src="./assets/img/participants/ritmo.webp" alt="tbd" />
+                            <img src="./assets/img/participants/ritmo.webp" alt="Who's icon" />
                             <div class="card-content">
                                 <span class="title-sm">リツモ</span>
-                                <span class="os-text-grey">あはは</span>
+                                <span>あいうえお</span>
                             </div>
                         </button>
                         <button type="button" class="card">
-                            <img src="./assets/img/participants/ritmo.webp" alt="tbd" />
+                            <img src="./assets/img/participants/ritmo.webp" alt="Who's icon" />
                             <div class="card-content">
                                 <span class="title-sm">リツモ</span>
-                                <span class="os-text-grey">あはは</span>
+                                <span>あいうえお</span>
+                            </div>
+                        </button>
+                        <button type="button" class="card">
+                            <img src="./assets/img/participants/ritmo.webp" alt="Who's icon" />
+                            <div class="card-content">
+                                <span class="title-sm">リツモ</span>
+                                <span>あいうえお</span>
+                            </div>
+                        </button>
+                        <button type="button" class="card">
+                            <img src="./assets/img/participants/ritmo.webp" alt="Who's icon" />
+                            <div class="card-content">
+                                <span class="title-sm">リツモ</span>
+                                <span>あいうえお</span>
                             </div>
                         </button>
                     </div>
