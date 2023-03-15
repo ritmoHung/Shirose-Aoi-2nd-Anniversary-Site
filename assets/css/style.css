@@ -188,6 +188,7 @@ body {
 }
 .tachie-container {
     height: 100%;
+    margin-left: -1rem;
     display: grid;
     position: absolute;
     place-items: center;
