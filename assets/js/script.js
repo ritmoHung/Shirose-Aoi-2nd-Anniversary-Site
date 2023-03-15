@@ -55,7 +55,7 @@ const tachieParallaxOnGyro = () => {
 
     if(window.scrollY < parallaxBreakpoint) {
         var rotateGamma = event.gamma;
-        var optDX = 0.1 * (vw(50) + rotateGamma);
+        var optDX = 0.1 * (rotateGamma % 360);
         console.log(optDX);
     }
 }
