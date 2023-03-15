@@ -39,7 +39,7 @@ var tachieBGBottom = document.getElementById('tachieBGBottom');
 var tachie = document.getElementById('tachie');
 
 const requestMotionPermission = () => {
-    if(window.DeviceOrientationEvent && 
+    if(window.DeviceOrientationEvent && !enableOnGyro &&
         (event.rotationRate.alpha || event.rotationRate.beta || event.rotationRate.gamma)) {
         enableOnGyro = true;
         // Request permission for iOS 13+ devices
@@ -71,7 +71,8 @@ const tachieParallaxOnMouse = () => {
         tachie.style.transform = "translateX(" + 3 * optDX + "px" + ")";
     }
 }
-window.addEventListener('load', requestMotionPermission);
+// ! Seems that sensor data cannot be read onload
+window.addEventListener('devicemotion', requestMotionPermission);
 window.addEventListener('deviceorientation', function(event) {
     if(enableOnGyro) tachieParallaxOnGyro();
 });
