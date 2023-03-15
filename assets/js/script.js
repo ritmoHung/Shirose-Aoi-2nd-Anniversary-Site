@@ -54,9 +54,9 @@ const tachieParallaxOnGyro = () => {
     var parallaxBreakpoint = vh(100);
 
     if(window.scrollY < parallaxBreakpoint) {
-        var rotateAlpha = event.alpha;
+        var rotateGamma = event.gamma;
         var optDX = 0;
-        console.log(rotateAlpha);
+        console.log(rotateGamma);
     }
 }
 
@@ -71,7 +71,7 @@ const tachieParallaxOnMouse = () => {
         tachie.style.transform = "translateX(" + 3 * optDX + "px" + ")";
     }
 }
-window.addEventListener('devicemotion', requestMotionPermission);
+window.addEventListener('load', requestMotionPermission);
 window.addEventListener('deviceorientation', function(event) {
     if(enableOnGyro) tachieParallaxOnGyro();
 });
