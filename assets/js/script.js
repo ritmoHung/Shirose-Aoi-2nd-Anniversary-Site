@@ -71,7 +71,7 @@ const tachieParallaxOnMouse = () => {
         tachie.style.transform = "translateX(" + 3 * optDX + "px" + ")";
     }
 }
-window.addEventListener('load', requestMotionPermission);
+window.addEventListener('devicemotion', requestMotionPermission);
 window.addEventListener('deviceorientation', function(event) {
     if(enableOnGyro) tachieParallaxOnGyro();
 });
