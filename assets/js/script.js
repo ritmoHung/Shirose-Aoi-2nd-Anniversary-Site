@@ -40,7 +40,7 @@ var tachie = document.getElementById('tachie');
 
 const requestMotionPermission = () => {
     if(window.DeviceOrientationEvent && 
-        (DeviceMotionEvent.rotationRate.alpha || DeviceMotionEvent.rotationRate.beta || DeviceMotionEvent.rotationRate.gamma)) {
+        (event.rotationRate.alpha || event.rotationRate.beta || event.rotationRate.gamma)) {
         enableOnGyro = true;
         // Request permission for iOS 13+ devices
         if( DeviceMotionEvent &&
