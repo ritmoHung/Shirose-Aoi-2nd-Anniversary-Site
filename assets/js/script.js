@@ -74,8 +74,8 @@ const tachieParallaxOnGyro = () => {
 
     if(window.scrollY < parallaxBreakpoint) {
         getRotateAlpha();
-        var optDX = rotate.alpha;
-        console.log(optDX);
+        var optDX = 0;
+        console.log(rotate.alpha, mouse.x);
     }
 }
 const tachieParallaxOnMouse = () => {
