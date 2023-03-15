@@ -35,15 +35,15 @@ window.addEventListener('resize', tachieSizing);
 // Parallax
 let mouse = {
     x: 0,
-    y: 0
-}
+    y: 0,
+};
 
 var hasGyro = false;
 let rotate = {
     alpha: 0,
     beta: 0,
-    gamma: 0
-}
+    gamma: 0,
+};
 
 var tachieBGTop = document.getElementById('tachieBGTop');
 var tachieBGBottom = document.getElementById('tachieBGBottom');
@@ -75,7 +75,7 @@ const tachieParallaxOnGyro = () => {
     if(window.scrollY < parallaxBreakpoint) {
         getRotateAlpha();
         var optDX = 0;
-        console.log(rotate.alpha, mouse.x);
+        console.log(rotate.alpha);
     }
 }
 const tachieParallaxOnMouse = () => {
