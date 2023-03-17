@@ -56,30 +56,21 @@ window.addEventListener('mousemove', function(event) {
 var enableOnOrient = false;
 function getMotion() {
     // ! This remains touch-enabled Windows laptop with deviceorientation-enabled Chrome
-    if(window.DeviceOrientationEvent && 'ontouchstart' in window) {
-        enableOnOrient = true;
+    if(window.DeviceOrientationEvent && 'ontouchstart' in window && !enableOnGyro) {
         // # Request permission for iOS 13+ devices
-        try {
-            DeviceMotionEvent.requestPermission().then(response => {
-                if(response == 'granted') {
-                    console.log("accelerometer permission granted");
-                    enableOnOrient = true;
-                }
-                else {
-                    console.log('Permission denied');
-                    return;
-                }
-            });
-        } catch(exception) {
-            console.log('Permission granting is not needed for devices other than iPhoneX (or above)');
-        }
+        DeviceMotionEvent.requestPermission().then(response => {
+            if (response == 'granted') {
+                enableOnOrient = true;
+            }
+            else {
+                console.log('Permission denied');
+                return false;
+            }
+        });
         enableOnOrient = true;
+        console.log('Permission granted');
     }
 }
-getMotion();
-window.addEventListener('deviceorientation', function(event) {
-    if(enableOnOrient) tachieParallaxOnOrient();
-});
 
 function orientDegScaling(deg) {
     // # Restrict maximum value to ±5deg
@@ -103,6 +94,10 @@ const tachieParallaxOnOrient = () => {
         tachie.style.transform = "translateX(" + 3 * optDX + "px" + ")";
     }
 }
+getMotion();
+window.addEventListener('deviceorientation', function(event) {
+    if(enableOnOrient) tachieParallaxOnOrient();
+});
 
 
 
