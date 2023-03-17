@@ -78,6 +78,7 @@ const getMotionOnIOS = () => {
         });
     }
     // # Closes the motion-preloader regardlessly
+    var iosMotionPreloader = document.getElementById('ios-motion-preloader');
     iosMotionPreloader.style.visibility = "hidden";
 }
 if(!isiOSMobile) {
