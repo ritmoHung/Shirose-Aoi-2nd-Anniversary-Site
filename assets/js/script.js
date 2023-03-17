@@ -113,6 +113,7 @@ const tachieParallaxOnOrient = () => {
                 break;
 
             default:
+                var orientDeg = event.gamma;
                 break;
         }
         orientDeg = orientDeg.toFixed(3);
