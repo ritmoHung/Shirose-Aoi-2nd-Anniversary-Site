@@ -59,6 +59,7 @@ function getMotion() {
         if(typeof DeviceMotionEvent.requestPermission === "function") {
             DeviceMotionEvent.requestPermission().then(response => {
                 if (response == 'granted') {
+                    console.log('Permission granted');
                     enableOnOrient = true;
                 }
                 else {
@@ -71,24 +72,18 @@ function getMotion() {
             console.log('Permission granting not needed for devices other than iPhone X or above');
         }
         enableOnOrient = true;
-        console.log('Permission granted');
     }
 }
 
-function orientDegScaling(deg) {
-    // # Restrict maximum value to ±5deg
-    if(deg > 5) deg = 5;
-    else if(deg < -5) deg = -5;
-
-    // # Map +5 to 0, -5 to 180
-    return ((-18 * deg) + 60);
+function clamp(val, min, max) {
+    return (val > max) ? max : ((val < min) ? min : val);
 }
 
 const tachieParallaxOnOrient = () => {
     if(window.scrollY < vh(100)) {
         var orientG = event.gamma;
-        // var optDX = 20 * Math.cos(orientDegScaling(orientG));
-        var optDX = 0.1 * (orientG % 360);
+        var limit = 0.25 * vw(10);
+        var optDX = clamp(0.2 * (orientG % 360), -limit, limit);
         console.log(optDX);
         tachieBGTop.style.transform = "translateX(" + -optDX + "px" + ")";
         tachieBGBottom.style.transform = "translateX(" + 2 * optDX + "px" + ")";
