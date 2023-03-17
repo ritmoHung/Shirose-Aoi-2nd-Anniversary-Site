@@ -77,6 +77,8 @@ const getMotionOnIOS = () => {
             }
         });
     }
+    // # Closes the motion-preloader regardlessly
+    iosMotionPreloader.style.visibility = "hidden";
 }
 if(!isiOSMobile) {
     getMotion();
