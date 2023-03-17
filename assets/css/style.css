@@ -40,9 +40,6 @@
 body {
     overflow-x: hidden;
     overflow-y: overlay;
-    /* ! viewport-fit: cover disables pixel-ratio
-    padding-left: env(safe-area-inset-left);
-    padding-right: env(safe-area-inset-right); */
 
     color: var(--color-white);
     font-family: 'Zen Maru Gothic', sans-serif;
@@ -65,8 +62,9 @@ body {
     z-index: 10000;
     place-items: center;
     place-content: center;
-    row-gap: var(--gap-3);
+    row-gap: var(--gap-4);
 
+    text-align: justify;
     background-color: var(--color-deep-blue);
     transition: opacity, visibility;
     transition-duration: calc(2 * var(--trans-duration));
@@ -78,8 +76,14 @@ body {
     pointer-events: none;
 }
 #ios-motion-preloader {
+    padding: var(--gap-8);
     background-color: var(--bg-color);
     visibility: hidden;
+}
+#ios-motion-preloader img {
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    border-radius: 50%;
 }
 .fade-in {
     opacity: 100% !important;

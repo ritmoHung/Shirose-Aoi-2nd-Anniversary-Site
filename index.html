@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- ! Affects mobiles other than iPhone
-    <meta name="viewport" content="viewport-fit=cover"> -->
+    <meta property="og:title" content="白瀬あおい二周年記念ウェブ">
+    <meta property="og:image" content="https://ritmohung.github.io/Shirose-Aoi-2nd-Anniversary-Site/assets/img/aoi-preload.webp">
+    <meta property="og:description" content="あおちゃん，2 周年おめでとう！">
     <title>白瀬あおい二周年記念ウェブ</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,9 +25,10 @@
 <!-- * BODY -->
 <body class="unscrollable">
     <!-- Preloaders -->
-    <div id="ios-motion-preloader" class="preloader p-5">
-        <span class="title-sm">We need motion permission to enable parallax!</span>
-        <span class="title-sm">If you want to view the effect, please press the button below!</span>
+    <div id="ios-motion-preloader" class="preloader">
+        <img src="./assets/img/aoi-preload.webp" alt="" />
+        <span class="title-sm">最高のブラウジング体験を得るために、許可を与えてください。</span>
+        <p>iOSの制約上、センサーデータの取得にはユーザーからの許可が必要であり、ホームページの画像に使用されます。<br>ご同意いただける場合は、下のボタンを押してください。</p>
         <button type="button" class="btn btn-fab mt-5" onclick="getMotionOnIOS()">
             <span class="material-symbols-rounded">check</span>
         </button>

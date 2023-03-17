@@ -16,6 +16,9 @@ const iosMotionPreloader = () => {
     if(isiOSMobile) {
         var iosMotionPreloader = document.getElementById('ios-motion-preloader');
         iosMotionPreloader.style.visibility = "visible";
+        // # Set body unscrollable again
+        // # so user cannot scroll "after preloader" and "before permission granted"
+        document.body.classList.add('unscrollable');
     }
 }
 window.addEventListener('load', fade);

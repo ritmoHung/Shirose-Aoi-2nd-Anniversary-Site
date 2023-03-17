@@ -77,9 +77,10 @@ const getMotionOnIOS = () => {
             }
         });
     }
-    // # Closes the motion-preloader regardlessly
+    // # Closes the motion-preloader regardlessly, then enable body scroll
     var iosMotionPreloader = document.getElementById('ios-motion-preloader');
     iosMotionPreloader.classList.add('fade-out');
+    document.body.classList.remove('unscrollable');
     sleep(200).then(() => { iosMotionPreloader.style.display = "none"; });
 }
 if(!isiOSMobile) {
@@ -93,13 +94,33 @@ function clamp(val, min, max) {
 // * Display parallax on orientaions
 const tachieParallaxOnOrient = () => {
     if(window.scrollY < vh(100)) {
-        var orientG = (event.gamma).toFixed(3);
+        switch(screen.orientation.type) {
+            case "portrait-primary":
+                var orientDeg = event.gamma;
+                break;
+
+            case "portrait-secondary":
+                var orientDeg = -(event.gamma);
+                break;
+
+            case "landscape-primary":
+                var orientDeg = -(event.beta);
+                break;
+
+            case "landscape-secondary":
+                var orientDeg = event.beta;
+                break;
+
+            default:
+                break;
+        }
+        orientDeg = orientDeg.toFixed(3);
         var limit = 0.25 * vw(10);
-        var optDX = clamp(0.2 * (orientG % 360), -limit, limit);
-        console.log(optDX);
-        tachieBGTop.style.transform = "translateX(" + -optDX + "px" + ")";
-        tachieBGBottom.style.transform = "translateX(" + 2 * optDX + "px" + ")";
-        tachie.style.transform = "translateX(" + 3 * optDX + "px" + ")";
+        var optDX = clamp(0.2 * (orientDeg % 360), -limit, limit);
+
+        tachieBGTop.style.transform = "translateX(" + optDX + "px" + ")";
+        tachieBGBottom.style.transform = "translateX(" + (-2 * optDX) + "px" + ")";
+        tachie.style.transform = "translateX(" + (-3 * optDX) + "px" + ")";
     }
 }
 window.addEventListener('deviceorientation', function(event) {
