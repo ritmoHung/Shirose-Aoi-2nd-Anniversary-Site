@@ -76,6 +76,7 @@ function getMotion() {
         enableOnOrient = true;
     }
 }
+getMotion();
 window.addEventListener('deviceorientation', function(event) {
     if(enableOnOrient) tachieParallaxOnOrient();
 });
