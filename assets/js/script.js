@@ -79,7 +79,8 @@ const getMotionOnIOS = () => {
     }
     // # Closes the motion-preloader regardlessly
     var iosMotionPreloader = document.getElementById('ios-motion-preloader');
-    iosMotionPreloader.style.visibility = "hidden";
+    iosMotionPreloader.classList.add('fade-out');
+    sleep(200).then(() => { iosMotionPreloader.style.display = "none"; });
 }
 if(!isiOSMobile) {
     getMotion();
@@ -92,7 +93,7 @@ function clamp(val, min, max) {
 // * Display parallax on orientaions
 const tachieParallaxOnOrient = () => {
     if(window.scrollY < vh(100)) {
-        var orientG = event.gamma;
+        var orientG = (event.gamma).toFixed(3);
         var limit = 0.25 * vw(10);
         var optDX = clamp(0.2 * (orientG % 360), -limit, limit);
         console.log(optDX);

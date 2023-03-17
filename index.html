@@ -24,11 +24,11 @@
 <!-- * BODY -->
 <body class="unscrollable">
     <!-- Preloaders -->
-    <div id="ios-motion-preloader" class="preloader">
-        We need permission to power parallax!<br>
-        If you want to view the effect, please press 'OK'!
-        <button type="button" class="btn" onclick="getMotionOnIOS()">
-            OK
+    <div id="ios-motion-preloader" class="preloader p-5">
+        <span class="title-sm">We need motion permission to enable parallax!</span>
+        <span class="title-sm">If you want to view the effect, please press the button below!</span>
+        <button type="button" class="btn btn-fab mt-5" onclick="getMotionOnIOS()">
+            <span class="material-symbols-rounded">check</span>
         </button>
     </div>
     <div id="preloader" class="preloader">

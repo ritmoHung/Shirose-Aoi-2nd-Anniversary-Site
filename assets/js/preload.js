@@ -1,3 +1,8 @@
+// * Sleep function
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 // * Preloaders
 const fade = () => {
     const preloader = document.getElementById('preloader');
@@ -42,10 +47,10 @@ const navBG = () => {
 
     // ! navbar-items still clickable
     if(window.scrollY < navbarBreakpoint) {
-        navbar.style.opacity = 0;
+        navbar.classList.remove('fade-in');
     }
     else {
-        navbar.style.opacity = 1;
+        navbar.classList.add('fade-in');
     }
 }
 const fabVis = () => {
