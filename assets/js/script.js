@@ -58,15 +58,20 @@ function getMotion() {
     // ! This remains touch-enabled Windows laptop with deviceorientation-enabled Chrome
     if(window.DeviceOrientationEvent && 'ontouchstart' in window) {
         // # Request permission for iOS 13+ devices
-        DeviceMotionEvent.requestPermission().then(response => {
-            if (response == 'granted') {
-                enableOnOrient = true;
-            }
-            else {
-                console.log('Permission denied');
-                return false;
-            }
-        });
+        if(typeof DeviceMotionEvent.requestPermission === "function") {
+            DeviceMotionEvent.requestPermission().then(response => {
+                if (response == 'granted') {
+                    enableOnOrient = true;
+                }
+                else {
+                    console.log('Permission denied');
+                    return false;
+                }
+            });
+        }
+        else {
+            console.log('Permission granting not needed for devices other than iPhone X or above');
+        }
         enableOnOrient = true;
         console.log('Permission granted');
     }
