@@ -98,26 +98,24 @@ const tachieParallaxOnOrient = () => {
             let orientation = screen.orientation.type || screen.mozOrientation || screen.msOrientation || window.orientation;
             if(orientation === "portrait-primary" ||
                orientation === 0) {
-                var orientDeg = event.gamma;
+                var orientDeg = (event.gamma).toFixed(3);
             }
             else if(orientation === "landscape-primary" ||
                     orientation === -90) {
-                var orientDeg = event.beta;
+                var orientDeg = (event.beta).toFixed(3);
             }
             else if(orientation === "portrait-secondary" ||
                     orientation === 180) {
-                var orientDeg = -(event.gamma);
+                var orientDeg = -(event.gamma).toFixed(3);
             }
             else if(orientation === "landscape-secondary" ||
                     orientation === 90) {
-                var orientDeg = -(event.beta);
+                var orientDeg = -(event.beta).toFixed(3);
             }
             else {
-                var orientDeg = event.gamma;
+                var orientDeg = (event.gamma).toFixed(3);
             }
         }
-        
-        orientDeg = orientDeg.toFixed(3);
         var limit = 0.25 * vw(10);
         var optDX = clamp(0.2 * (orientDeg % 360), -limit, limit);
 
