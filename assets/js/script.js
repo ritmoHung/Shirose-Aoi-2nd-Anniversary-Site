@@ -56,7 +56,7 @@ window.addEventListener('mousemove', function(event) {
 var enableOnOrient = false;
 function getMotion() {
     // ! This remains touch-enabled Windows laptop with deviceorientation-enabled Chrome
-    if(window.DeviceOrientationEvent && 'ontouchstart' in window && !enableOnGyro) {
+    if(window.DeviceOrientationEvent && 'ontouchstart' in window) {
         // # Request permission for iOS 13+ devices
         DeviceMotionEvent.requestPermission().then(response => {
             if (response == 'granted') {
