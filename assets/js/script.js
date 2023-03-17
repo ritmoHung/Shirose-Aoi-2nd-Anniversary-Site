@@ -94,7 +94,7 @@ function clamp(val, min, max) {
 // * Display parallax on orientaions
 const tachieParallaxOnOrient = () => {
     if(window.scrollY < vh(100)) {
-        let orientation = screen.orientation.type || screen.mozOrientation || screen.msOrientation;
+        let orientation = (screen.orientation || {}).type || screen.mozOrientation || screen.msOrientation;
         switch(orientation) {
             case "portrait-primary":
                 var orientDeg = event.gamma;
@@ -105,11 +105,11 @@ const tachieParallaxOnOrient = () => {
                 break;
 
             case "landscape-primary":
-                var orientDeg = -(event.beta);
+                var orientDeg = event.beta;
                 break;
 
             case "landscape-secondary":
-                var orientDeg = event.beta;
+                var orientDeg = -(event.beta);
                 break;
 
             default:
