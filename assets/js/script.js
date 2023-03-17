@@ -94,28 +94,29 @@ function clamp(val, min, max) {
 // * Display parallax on orientaions
 const tachieParallaxOnOrient = () => {
     if(window.scrollY < vh(100)) {
-        let orientation = (screen.orientation || {}).type || screen.mozOrientation || screen.msOrientation;
-        switch(orientation) {
-            case "portrait-primary":
+        if(!isiOSMobile) {
+            let orientation = screen.orientation.type || screen.mozOrientation || screen.msOrientation || window.orientation;
+            if(orientation === "portrait-primary" ||
+               orientation === 0) {
                 var orientDeg = event.gamma;
-                break;
-
-            case "portrait-secondary":
-                var orientDeg = -(event.gamma);
-                break;
-
-            case "landscape-primary":
+            }
+            else if(orientation === "landscape-primary" ||
+                    orientation === -90) {
                 var orientDeg = event.beta;
-                break;
-
-            case "landscape-secondary":
+            }
+            else if(orientation === "portrait-secondary" ||
+                    orientation === 180) {
+                var orientDeg = -(event.gamma);
+            }
+            else if(orientation === "landscape-secondary" ||
+                    orientation === 90) {
                 var orientDeg = -(event.beta);
-                break;
-
-            default:
+            }
+            else {
                 var orientDeg = event.gamma;
-                break;
+            }
         }
+        
         orientDeg = orientDeg.toFixed(3);
         var limit = 0.25 * vw(10);
         var optDX = clamp(0.2 * (orientDeg % 360), -limit, limit);
