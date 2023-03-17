@@ -32,37 +32,11 @@ window.addEventListener('resize', tachieSizing);
 
 
 // Parallax
-var enableOnGyro = false;
 var tachieBGTop = document.getElementById('tachieBGTop');
 var tachieBGBottom = document.getElementById('tachieBGBottom');
 var tachie = document.getElementById('tachie');
 
-const requestMotionPermission = () => {
-    if(window.DeviceOrientationEvent && !enableOnGyro &&
-        (event.rotationRate.alpha || event.rotationRate.beta || event.rotationRate.gamma)) {
-        enableOnGyro = true;
-        // Request permission for iOS 13+ devices
-        if( DeviceMotionEvent &&
-            typeof DeviceMotionEvent.requestPermission === "function") {
-                DeviceMotionEvent.requestPermission();
-        }
-    }
-}
-
-const tachieParallaxOnGyro = () => {
-    var parallaxBreakpoint = vh(100);
-
-    if(window.scrollY < parallaxBreakpoint) {
-        var rotateGamma = event.gamma;
-        var optDX = 5 * (rotateGamma % 360);
-        console.log(optDX);
-        // * To be optimized
-        tachieBGTop.style.transform = "translateX(" + -optDX + "px" + ")";
-        tachieBGBottom.style.transform = "translateX(" + 2 * optDX + "px" + ")";
-        tachie.style.transform = "translateX(" + 3 * optDX + "px" + ")";
-    }
-}
-
+// * Display parallax on mouseY movements
 const tachieParallaxOnMouse = () => {
     var parallaxBreakpoint = vh(100);
 
@@ -74,14 +48,60 @@ const tachieParallaxOnMouse = () => {
         tachie.style.transform = "translateX(" + 3 * optDX + "px" + ")";
     }
 }
-// ! Seems that sensor data cannot be read onload
-window.addEventListener('devicemotion', requestMotionPermission);
-window.addEventListener('deviceorientation', function(event) {
-    if(enableOnGyro) tachieParallaxOnGyro();
-});
 window.addEventListener('mousemove', function(event) {
-    if(!enableOnGyro) tachieParallaxOnMouse();
+    if(!enableOnOrient) tachieParallaxOnMouse();
 });
+
+// * Display parallax on orientaions
+var enableOnOrient = false;
+function getMotion() {
+    // ! This remains touch-enabled Windows laptop with deviceorientation-enabled Chrome
+    if(window.DeviceOrientationEvent && 'ontouchstart' in window) {
+        enableOnOrient = true;
+        // # Request permission for iOS 13+ devices
+        try {
+            DeviceMotionEvent.requestPermission().then(response => {
+                if(response == 'granted') {
+                    console.log("accelerometer permission granted");
+                    enableOnOrient = true;
+                }
+                else {
+                    console.log('Permission denied');
+                    return;
+                }
+            });
+        } catch(exception) {
+            console.log('Permission granting is not needed for devices other than iPhoneX (or above)');
+        }
+        enableOnOrient = true;
+    }
+}
+window.addEventListener('deviceorientation', function(event) {
+    if(enableOnOrient) tachieParallaxOnOrient();
+});
+
+function orientDegScaling(deg) {
+    // # Restrict maximum value to ±5deg
+    if(deg > 5) deg = 5;
+    else if(deg < -5) deg = -5;
+
+    // # Map +5 to 0, -5 to 180
+    return ((-18 * deg) + 60);
+}
+
+const tachieParallaxOnOrient = () => {
+    var parallaxBreakpoint = vh(100);
+
+    
+    if(window.scrollY < parallaxBreakpoint) {
+        var orientG = event.gamma;
+        var optDX = 20 * Math.cos(orientDegScaling(orientG));
+        console.log(optDX);
+        tachieBGTop.style.transform = "translateX(" + -optDX + "px" + ")";
+        tachieBGBottom.style.transform = "translateX(" + 2 * optDX + "px" + ")";
+        tachie.style.transform = "translateX(" + 3 * optDX + "px" + ")";
+    }
+}
 
 
 
