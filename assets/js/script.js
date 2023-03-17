@@ -108,7 +108,7 @@ const tachieParallaxOnOrient = () => {
             var orientDeg = (event.gamma).toFixed(3);
         }
         else if(orientation === "landscape-primary" ||
-                orientation === -90) {
+                orientation === 90) {
             var orientDeg = (event.beta).toFixed(3);
         }
         else if(orientation === "portrait-secondary" ||
@@ -116,7 +116,7 @@ const tachieParallaxOnOrient = () => {
             var orientDeg = -(event.gamma).toFixed(3);
         }
         else if(orientation === "landscape-secondary" ||
-                orientation === 90) {
+                orientation === -90) {
             var orientDeg = -(event.beta).toFixed(3);
         }
         else {
