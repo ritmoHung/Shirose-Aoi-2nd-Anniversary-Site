@@ -38,9 +38,7 @@ var tachie = document.getElementById('tachie');
 
 // * Display parallax on mouseY movements
 const tachieParallaxOnMouse = () => {
-    var parallaxBreakpoint = vh(100);
-
-    if(window.scrollY < parallaxBreakpoint) {
+    if(window.scrollY < vh(100)) {
         var mouseX = event.pageX;
         var optDX = 0.01 * (mouseX - vw(50));
         tachieBGTop.style.transform = "translateX(" + -optDX + "px" + ")";
@@ -87,13 +85,10 @@ function orientDegScaling(deg) {
 }
 
 const tachieParallaxOnOrient = () => {
-    var parallaxBreakpoint = vh(100);
-
-    
-    if(window.scrollY < parallaxBreakpoint) {
+    if(window.scrollY < vh(100)) {
         var orientG = event.gamma;
         // var optDX = 20 * Math.cos(orientDegScaling(orientG));
-        var optDX = 0.1 * (rotateGamma % 360);
+        var optDX = 0.1 * (orientG % 360);
         console.log(optDX);
         tachieBGTop.style.transform = "translateX(" + -optDX + "px" + ")";
         tachieBGBottom.style.transform = "translateX(" + 2 * optDX + "px" + ")";
