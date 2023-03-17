@@ -92,9 +92,17 @@ function clamp(val, min, max) {
 }
 
 // * Display parallax on orientaions
+function getOrientation() {
+    if(!isiOSMobile) {
+        return (screen.orientation.type || screen.mozOrientation || screen.msOrientation);
+    }
+    else {
+        return window.orientation;
+    }
+}
 const tachieParallaxOnOrient = () => {
     if(window.scrollY < vh(100)) {
-        let orientation = screen.orientation.type || screen.mozOrientation || screen.msOrientation || window.orientation;
+        let orientation = getOrientation();
         if(orientation === "portrait-primary" ||
             orientation === 0) {
             var orientDeg = (event.gamma).toFixed(3);
