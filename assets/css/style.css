@@ -75,6 +75,9 @@ body {
     width: auto;
     pointer-events: none;
 }
+#ios-motion-preloader {
+    visibility: hidden;
+}
 .fade-in {
     opacity: 100% !important;
     visibility: visible !important;

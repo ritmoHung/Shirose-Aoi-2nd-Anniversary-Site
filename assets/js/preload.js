@@ -1,14 +1,24 @@
-// Pre-loader
+// * Preloaders
 const fade = () => {
-    const wrapper = document.querySelector('.preloader');
-    wrapper.classList.add('fade-out');
+    const preloader = document.getElementById('preloader');
+    preloader.classList.add('fade-out');
     document.body.classList.remove('unscrollable');
 }
+
+let isiOSMobile = (/iPad|iPhone|iPod/.test(navigator.userAgent) || 
+                  (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1));
+const iosMotionPreloader = () => {
+    if(isiOSMobile) {
+        var iosMotionPreloader = document.getElementById('ios-motion-preloader');
+        iosMotionPreloader.style.visibility = "visible";
+    }
+}
 window.addEventListener('load', fade);
+window.addEventListener('load', iosMotionPreloader);
 
 
 
-// Navbar background color & FAB opacity
+// * Navbar BG color, Navbar & FAB visibility
 function vw(percent) {
     var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
     return (percent * w) / 100;

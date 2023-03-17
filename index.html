@@ -23,10 +23,18 @@
 
 <!-- * BODY -->
 <body class="unscrollable">
-    <!-- Pre-loader -->
-    <div class="preloader">
+    <!-- Preloaders -->
+    <div id="ios-motion-preloader" class="preloader">
+        We need permission to power parallax!<br>
+        If you want to view the effect, please press 'OK'!
+        <button type="button" class="btn" onclick="getMotionOnIOS()">
+            OK
+        </button>
+    </div>
+    <div id="preloader" class="preloader">
         <img src="./assets/load.gif" />
     </div>
+    
 
     <!-- Snowflake particles -->
     <div id="snowflakes" class="fixed-top"></div>

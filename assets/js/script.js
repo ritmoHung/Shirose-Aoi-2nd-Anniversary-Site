@@ -1,3 +1,4 @@
+// * Twemoji replacing
 const emo = () => {
     twemoji.parse(document.body, {
         folder: "svg", 
@@ -8,7 +9,7 @@ window.addEventListener('load', emo);
 
 
 
-// Parallax Sizing
+// * Parallax Sizing
 const tachieSizing = () => {
     var tachieContainers = document.querySelectorAll('.tachie-container');
     var viewportRatio = vw(100) / vh(100);
@@ -31,7 +32,7 @@ window.addEventListener('resize', tachieSizing);
 
 
 
-// Parallax
+// * Parallax
 var tachieBGTop = document.getElementById('tachieBGTop');
 var tachieBGBottom = document.getElementById('tachieBGBottom');
 var tachie = document.getElementById('tachie');
@@ -50,35 +51,42 @@ window.addEventListener('mousemove', function(event) {
     if(!enableOnOrient) tachieParallaxOnMouse();
 });
 
-// * Display parallax on orientaions
+// * Mobile Detection
 var enableOnOrient = false;
 function getMotion() {
     // ! This remains touch-enabled Windows laptop with deviceorientation-enabled Chrome
     if(window.DeviceOrientationEvent && 'ontouchstart' in window) {
-        // # Request permission for iOS 13+ devices
-        if(typeof DeviceMotionEvent.requestPermission === "function") {
-            DeviceMotionEvent.requestPermission().then(response => {
-                if (response == 'granted') {
-                    console.log('Permission granted');
-                    enableOnOrient = true;
-                }
-                else {
-                    console.log('Permission denied');
-                    return false;
-                }
-            });
-        }
-        else {
-            console.log('Permission granting not needed for devices other than iPhone X or above');
-        }
+        // # Request permission for iOS 13+ devices needs user gesture to prompt
+        // # therefore enableOnOrient is directly set to true here
+        console.log('Permission granting not needed for devices other than iPhone X or above');
         enableOnOrient = true;
     }
+}
+// * iOS Mobile permission granting
+const getMotionOnIOS = () => {
+    // # Request permission for iOS 13+ devices
+    if(isiOSMobile && typeof DeviceMotionEvent.requestPermission === "function") {
+        DeviceMotionEvent.requestPermission().then(response => {
+            if (response == 'granted') {
+                console.log('Permission granted');
+                enableOnOrient = true;
+            }
+            else {
+                console.log('Permission denied');
+                return false;
+            }
+        });
+    }
+}
+if(!isiOSMobile) {
+    getMotion();
 }
 
 function clamp(val, min, max) {
     return (val > max) ? max : ((val < min) ? min : val);
 }
 
+// * Display parallax on orientaions
 const tachieParallaxOnOrient = () => {
     if(window.scrollY < vh(100)) {
         var orientG = event.gamma;
@@ -90,7 +98,6 @@ const tachieParallaxOnOrient = () => {
         tachie.style.transform = "translateX(" + 3 * optDX + "px" + ")";
     }
 }
-getMotion();
 window.addEventListener('deviceorientation', function(event) {
     if(enableOnOrient) tachieParallaxOnOrient();
 });
