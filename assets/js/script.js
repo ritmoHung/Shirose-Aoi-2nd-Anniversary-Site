@@ -92,7 +92,8 @@ const tachieParallaxOnOrient = () => {
     
     if(window.scrollY < parallaxBreakpoint) {
         var orientG = event.gamma;
-        var optDX = 20 * Math.cos(orientDegScaling(orientG));
+        // var optDX = 20 * Math.cos(orientDegScaling(orientG));
+        var optDX = 0.1 * (rotateGamma % 360);
         console.log(optDX);
         tachieBGTop.style.transform = "translateX(" + -optDX + "px" + ")";
         tachieBGBottom.style.transform = "translateX(" + 2 * optDX + "px" + ")";
