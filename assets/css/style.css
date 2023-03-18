@@ -62,7 +62,7 @@ body {
     z-index: 10000;
     place-items: center;
     place-content: center;
-    row-gap: var(--gap-4);
+    row-gap: var(--gap-3);
 
     text-align: justify;
     background-color: var(--color-deep-blue);
@@ -71,19 +71,16 @@ body {
     transition-timing-function: ease-in-out;
 }
 .preloader img {
+    aspect-ratio: 1 / 1;
     height: 256px;
     width: auto;
+    object-fit: contain;
     pointer-events: none;
 }
 #ios-motion-preloader {
     padding: var(--gap-8);
     background-color: var(--bg-color);
     visibility: hidden;
-}
-#ios-motion-preloader img {
-    aspect-ratio: 1 / 1;
-    object-fit: contain;
-    border-radius: 50%;
 }
 .fade-in {
     opacity: 100% !important;
