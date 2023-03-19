@@ -136,7 +136,7 @@ window.addEventListener('deviceorientation', function(event) {
 
 
 
-// Arrow: Scroll Down Indicator
+// * Arrow: Scroll Down Indicator
 const scrollDown = () => {
     document.documentElement.scrollTop = vh(100);
 }
@@ -155,6 +155,34 @@ window.addEventListener('scroll', scrollDownArrowVis);
 
 
 
+// * Element reveal animation
+function reveal() {
+    var reveals = document.querySelectorAll(".reveal");
+    for(var index = 0; index < reveals.length; index++) {
+        var windowHeight = window.innerHeight;
+        var elementTop = reveals[index].getBoundingClientRect().top;
+        var elementVisible = 100;
+        if(elementTop < windowHeight - elementVisible) {
+            reveals[index].classList.add("active");
+        }
+        else {
+            reveals[index].classList.remove("active");
+        }
+    }
+}
+// # Check the scroll position on page load
+reveal();
+window.addEventListener('scroll', reveal);
+
+function revealTachie() {
+    var header = document.getElementsByTagName("header")[0];
+    header.classList.add("active");
+}
+window.addEventListener('load', revealTachie);
+
+
+
+// * Mute button
 const muteToggle = () => {
     var muteBtn = document.getElementById('mute-btn');
     var muteBtnIcon = document.getElementById('mute-btn-icon');
