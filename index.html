@@ -25,11 +25,11 @@
 <!-- * BODY -->
 <body class="unscrollable">
     <!-- Preloaders -->
-    <div id="ios-motion-preloader" class="preloader">
+    <div id="permission-preloader" class="preloader">
         <img src="./assets/img/aoi-q.webp" alt="Shirose Aoi Q ver. drawn by Mr. Crow" />
         <span class="title-sm">最高のブラウジング体験を得るために、許可を与えてください。</span>
         <p>iOSの制約上、センサーデータの取得にはユーザーからの許可が必要であり、ホームページの画像に使用されます。<br>ご同意いただける場合は、下のボタンを押してください。</p>
-        <button type="button" class="btn btn-fab" onclick="getMotionOnIOS()">
+        <button type="button" class="btn btn-fab" onclick="getAllPermission()">
             <span class="material-symbols-rounded">check</span>
         </button>
     </div>
@@ -48,7 +48,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="#messages">メッセージ</a>
+                    <a class="nav-link" href="#messages">あおぐるみより</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#past">パスト</a>
@@ -65,15 +65,14 @@
 
     <!-- FABs -->
     <div id="main-fab" class="fab-container">
-        <label for="mute-btn" class="btn btn-fab" onclick="muteToggle()">
-            <input id="mute-btn" type="checkbox" />
+        <button type="button" class="btn btn-fab" onclick="muteToggle()">
             <span id="mute-btn-icon" class="material-symbols-rounded">volume_up</span>
-        </label>
+        </button>
     </div>
 
     <div class="main-layout">
         <!-- * Header -->
-        <header class="main-header reveal-tachie">
+        <header class="main-header reveal fade-front">
             <!-- 1st parallax container -->
             <div class="tachie-container">
                 <img id="tachieBGBottom" src="./assets/img/tachie/tachie-bg-bottom.webp" alt="Sea BG for tachie" />
@@ -83,8 +82,8 @@
             <div id="snowflakes-behind" class="fixed-top"></div>
             <!-- Heading Text -->
             <div class="headings text-shadow px-5">
-                <h1 class="heading">Happy 2nd Anniversary!</h1>
-                <span class="subheading">あおちゃん，2 周年おめでとう！</span>
+                <h1 id="heading" class="heading reveal fade-top-delay-75">Happy 2nd Anniversary!</h1>
+                <span id="subheading" class="subheading reveal fade-top-delay-100">あおちゃん，2 周年おめでとう！</span>
             </div>
             <!-- Frame -->
             <div class="header-frame"></div>
@@ -102,9 +101,11 @@
             <div class="main-article">
                 <!-- ? Duplicate data of https://yosetti.com/mainyosegakis/invite?id=2364002&sc=OL1JK -->
                 <section id="messages">
-                    <h2 class="title">メッセージ</h2>
-                    <div class="card-list">
-                        <button type="button" class="card reveal">
+                    <h2 class="title">あおぐるみより</h2>
+
+                    <!-- # Web content -->
+                    <div class="card-list mb-5">
+                        <button type="button" class="card reveal fade-bottom">
                             <img src="./assets/img/participants/kemi.webp" alt="Kemi icon" />
                             <div class="card-content">
                                 <span class="title-sm">けみ</span>
@@ -112,7 +113,7 @@
                             </div>
                         </button>
 
-                        <button type="button" class="card reveal">
+                        <button type="button" class="card reveal fade-bottom">
                             <img src="./assets/img/participants/azunyan.webp" alt="Azunyan icon" />
                             <div class="card-content">
                                 <span class="title-sm">あずにゃん</span>
@@ -120,7 +121,7 @@
                             </div>
                         </button>
 
-                        <button type="button" class="card reveal">
+                        <button type="button" class="card reveal fade-bottom">
                             <img src="./assets/img/participants/kasukedo.webp" alt="Kasukedo icon" />
                             <div class="card-content">
                                 <span class="title-sm">かすけーど</span>
@@ -128,7 +129,7 @@
                             </div>
                         </button>
                         
-                        <button type="button" class="card reveal">
+                        <button type="button" class="card reveal fade-bottom">
                             <img src="./assets/img/participants/barunikomiudon.webp" alt="Baru nikomi udon icon" />
                             <div class="card-content">
                                 <span class="title-sm">ばる煮込みうどん</span>
@@ -136,7 +137,7 @@
                             </div>
                         </button>
 
-                        <button type="button" class="card reveal">
+                        <button type="button" class="card reveal fade-bottom">
                             <img src="./assets/img/participants/kumanonakanohito.webp" alt="Kuma no naka no hito icon" />
                             <div class="card-content">
                                 <span class="title-sm">熊の中の人</span>
@@ -144,7 +145,7 @@
                             </div>
                         </button>
 
-                        <button type="button" class="card reveal">
+                        <button type="button" class="card reveal fade-bottom">
                             <img src="./assets/img/participants/okome.webp" alt="Okome icon" />
                             <div class="card-content">
                                 <span class="title-sm">お米</span>
@@ -152,7 +153,7 @@
                             </div>
                         </button>
                         
-                        <button type="button" class="card reveal">
+                        <button type="button" class="card reveal fade-bottom">
                             <img src="./assets/img/participants/popopoimin.webp" alt="popopoimin icon" />
                             <div class="card-content">
                                 <span class="title-sm">popopoimin</span>
@@ -160,7 +161,7 @@
                             </div>
                         </button>
                         
-                        <button type="button" class="card reveal">
+                        <button type="button" class="card reveal fade-bottom">
                             <img src="./assets/img/participants/gyakusan.webp" alt="Gyakusan icon" />
                             <div class="card-content">
                                 <span class="title-sm">逆参</span>
@@ -168,58 +169,274 @@
                             </div>
                         </button>
 
-                        <!-- TODO: Copy-paste data -->
-                        <button type="button" class="card">
-                            <img src="./assets/img/participants/ritmo.webp" alt="Who's icon" />
+                        <button type="button" class="card reveal fade-bottom">
+                            <img src="./assets/img/participants/keita.webp" alt="Keita's icon" />
                             <div class="card-content">
-                                <span class="title-sm">リツモ</span>
-                                <span>あいうえお</span>
+                                <span class="title-sm">Keita</span>
+                                <span>あおちゃん、2 周年おめでとうございます！これからも天使の歌声でたくさんの人を魅了していってね。3 年目もお体に気をつけて、楽しく配信していきましょう！</span>
                             </div>
                         </button>
-                        <button type="button" class="card">
-                            <img src="./assets/img/participants/ritmo.webp" alt="Who's icon" />
+
+                        <button type="button" class="card reveal fade-bottom">
+                            <img src="./assets/img/participants/mark.webp" alt="Mark's icon" />
+                            <div class="card-content">
+                                <span class="title-sm">マーク</span>
+                                <span>また思い出の 1 年でしたね、2 回目の誕生日も、2 曲目のオリジナル曲も、葵ちゃんと一緒に過ごした日々も、とても楽しかったです、30 周年もよろしくま！単推しです！</span>
+                            </div>
+                        </button>
+
+                        <button type="button" class="card reveal fade-bottom">
+                            <img src="./assets/img/participants/oharu.webp" alt="Oharu's icon" />
+                            <div class="card-content">
+                                <span class="title-sm">お春</span>
+                                <span>途中参加の新参者だけど、あおちゃんの声と歌の魅力に支配された推し活を楽しめました！少しでも活動の気力になれるように 3 年目も、その先も応援します！いつもありがと！</span>
+                            </div>
+                        </button>
+
+                        <button type="button" class="card reveal fade-bottom">
+                            <img src="./assets/img/participants/hachuchuki.webp" alt="Hachuchuki's icon" />
+                            <div class="card-content">
+                                <span class="title-sm">はちゅちゅき</span>
+                                <span>2 周年おめでとうございます！あおいさんのハッキリズバッと！切れ味のあるツッコミとても好きです！これからもズバっとあおいさんらしく！鋭いツッコミを期待しています！</span>
+                            </div>
+                        </button>
+
+                        <button type="button" class="card reveal fade-bottom">
+                            <img src="./assets/img/participants/kamijo.webp" alt="Kamijo's icon" />
+                            <div class="card-content">
+                                <span class="title-sm">神条りゅーと</span>
+                                <span>あおちゃん二周年おめでとうございます。これからも体調崩さないように頑張ってくださいね。あおちゃんの、これからの成長を楽しみにしてます！あおちゃん大好き！</span>
+                            </div>
+                        </button>
+
+                        <button type="button" class="card reveal fade-bottom">
+                            <img src="./assets/img/participants/irotori.webp" alt="Irotori's icon" />
+                            <div class="card-content">
+                                <span class="title-sm">いろとり</span>
+                                <span>2 周年おめでとうございます！プロプロプロダクション新たなる、めるれっとやあおいさんがこれからも歌や配信でご活躍できるよう応援しています！</span>
+                            </div>
+                        </button>
+
+                        <button type="button" class="card reveal fade-bottom">
+                            <img src="./assets/img/participants/jaji.webp" alt="jaji's icon" />
+                            <div class="card-content">
+                                <span class="title-sm">jaji</span>
+                                <span>デビュー 2 周年おめでとう！今後も益々のご活躍と毎週の朝くまを楽しみにしています！</span>
+                            </div>
+                        </button>
+
+                        <button type="button" class="card reveal fade-bottom">
+                            <img src="./assets/img/participants/kazama.webp" alt="Kazama's icon" />
+                            <div class="card-content">
+                                <span class="title-sm">かざま。</span>
+                                <span>2 周年おめでとうございます！あおちゃんの歌声に衝撃を受け、人柄に惹かれ、気付けばハマっておりました…！3 年目も一緒に楽しく過ごせたら嬉しいですー！応援してます！</span>
+                            </div>
+                        </button>
+
+                        <button type="button" class="card reveal fade-bottom">
+                            <img src="./assets/img/participants/hotaro.webp" alt="Hotaro's icon" />
+                            <div class="card-content">
+                                <span class="title-sm">ほーたろー</span>
+                                <span>2 周年おめでとうございます！あおちゃんのキレイで力強い歌声や、透明で透き通る美声にいつも魅了されています。頑張り屋のあおちゃんをこれからも応援しています！</span>
+                            </div>
+                        </button>
+
+                        <button type="button" class="card reveal fade-bottom">
+                            <img src="./assets/img/participants/yagiyari.webp" alt="Yagiyari's icon" />
+                            <div class="card-content">
+                                <span class="title-sm">ヤギヤリ</span>
+                                <span>2 周年おめでとう～今年もとても濃い 1 年になったけどとても楽しかったね！！！3 年目もよろしく！！！^ - ^</span>
+                            </div>
+                        </button>
+
+                        <button type="button" class="card reveal fade-bottom">
+                            <img src="./assets/img/participants/yukari.webp" alt="Yukari's icon" />
+                            <div class="card-content">
+                                <span class="title-sm">ゆかり</span>
+                                <span>あおいちゃん、2 周年おめでとう！この一年は定期の朝くまとかくまぽんずエペとかプロプロカフェとかもあって楽しい一年だね、3 年目もよろしくま！</span>
+                            </div>
+                        </button>
+
+                        <button type="button" class="card reveal fade-bottom">
+                            <img src="./assets/img/participants/hizumi-ichika.webp" alt="Hizumi Ichika's icon" />
+                            <div class="card-content">
+                                <span class="title-sm">ひずみ いちか</span>
+                                <span>j</span>
+                            </div>
+                        </button>
+
+                        <button type="button" class="card reveal fade-bottom">
+                            <img src="./assets/img/participants/katsuan.webp" alt="Katsuan's icon" />
+                            <div class="card-content">
+                                <span class="title-sm">かつあん</span>
+                                <span>二周年おめでとうございます。三年目も更なるご活躍を心よりお祈りしてます。体調には気をつけて頑張ってください。</span>
+                            </div>
+                        </button>
+
+                        <button type="button" class="card reveal fade-bottom">
+                            <img src="./assets/img/participants/iyashuki.webp" alt="Iyashuki's icon" />
+                            <div class="card-content">
+                                <span class="title-sm">イヤシュキ</span>
+                                <span>あおいちゃん 2 周年おめでとうございます！あおいちゃんとの出会いは僕の人生の中で一番幸せなことです！これからも応援します～</span>
+                            </div>
+                        </button>
+
+                        <button type="button" class="card reveal fade-bottom">
+                            <img src="./assets/img/participants/ekuesu.webp" alt="Ekuesu's icon" />
+                            <div class="card-content">
+                                <span class="title-sm">エクエス</span>
+                                <span>あおいちゃん 2 周年おめでとう！沢山楽しい思い出ができました　これからも更に飛躍して、沢山の人に白瀬あおいを好きになってもらいたい！これからもよろしくね</span>
+                            </div>
+                        </button>
+
+                        <button type="button" class="card reveal fade-bottom">
+                            <img src="./assets/img/participants/marion.webp" alt="Marion's icon" />
+                            <div class="card-content">
+                                <span class="title-sm">寝落ちマリオン</span>
+                                <span>あお姉ぇ！！！2 周年おめでとうでっせぇぇぇ！！！(´ ∀` ) 2 年経つのが早いでっせ...この先も！ずっっっと！！あお姉に着いて参りやすので！よろしくでっせぇ！</span>
+                            </div>
+                        </button>
+
+                        <button type="button" class="card reveal fade-bottom">
+                            <img src="./assets/img/participants/yujihi.webp" alt="Yujihi's icon" />
+                            <div class="card-content">
+                                <span class="title-sm">ゆじひ</span>
+                                <span>あおいさん、2 周年おめでとうございます！歌は勿論のこと、キレッキレのツッコミトークが面白くて好きw 3 年目があおいさんにとって楽しく良き 1 年になりますように。</span>
+                            </div>
+                        </button>
+
+                        <button type="button" class="card reveal fade-bottom">
+                            <img src="./assets/img/participants/freedom.webp" alt="Freedom's icon" />
+                            <div class="card-content">
+                                <span class="title-sm">フリーダム</span>
+                                <span>あおちゃん 2 周年おめでとうございます！あおちゃんと出会ってもう 2 年経つなんてとても驚いてるよ。3 年目も無理しない程度に頑張れ！応援してる！</span>
+                            </div>
+                        </button>
+
+                        <button type="button" class="card reveal fade-bottom">
+                            <img src="./assets/img/participants/sumika.webp" alt="Sumika's icon" />
+                            <div class="card-content">
+                                <span class="title-sm">すみか</span>
+                                <span>2 周年おめでとう！これからも、あせらずいそがず、一歩一歩を積み重ねて、前に進んでいってください。</span>
+                            </div>
+                        </button>
+
+                        <button type="button" class="card reveal fade-bottom">
+                            <img src="./assets/img/participants/fujisawa-yuki.webp" alt="Fujisawa Yuki's icon" />
+                            <div class="card-content">
+                                <span class="title-sm">藤沢ゆき</span>
+                                <span>2 周年おめでとうございます。あおちゃんのお喋りは面白くていつもたくさんお喋りに行っちゃう！これからもいきいきとして楽しい 1 年間になりますように。</span>
+                            </div>
+                        </button>
+
+                        <button type="button" class="card reveal fade-bottom">
+                            <img src="./assets/img/participants/mukyou.webp" alt="Mukyou's icon" />
+                            <div class="card-content">
+                                <span class="title-sm">無響 (ムキョウ)</span>
+                                <span>あおちゃんデビュー 2 周年おめでとう！これからも、あおちゃんはあおちゃんらしく身体とか気を付けながら自分の夢に向かって頑張っていってね！改めておめでとう！！</span>
+                            </div>
+                        </button>
+
+                        <button type="button" class="card reveal fade-bottom">
+                            <img src="./assets/img/participants/saku.webp" alt="Saku's icon" />
+                            <div class="card-content">
+                                <span class="title-sm">サク</span>
+                                <span>二周年おめでとう！いつも頑張るあおいちゃんが幸せな一年を過ごせますように。MAOI の時に出てくる白瀬煽いもまた会いたいなw これからもよろしく！</span>
+                            </div>
+                        </button>
+
+                        <button type="button" class="card reveal fade-bottom">
+                            <img src="./assets/img/participants/rinjin.webp" alt="Rinjin's icon" />
+                            <div class="card-content">
+                                <span class="title-sm">リンジン</span>
+                                <span>2 周年おめでとう、3 周年目も宜しく～(´ ～` )</span>
+                            </div>
+                        </button>
+
+                        <button type="button" class="card reveal fade-bottom">
+                            <img src="./assets/img/participants/yuki-zakuro.webp" alt="Yuki Zakuro's icon" />
+                            <div class="card-content">
+                                <span class="title-sm">結城柘榴</span>
+                                <span>あおいさん 2 周年おめでとうございます。今年もお歌での活躍が沢山ありましたね、来年は今よりもっとお歌での嬉しい出来事があおいさんに訪れますように、願っております！</span>
+                            </div>
+                        </button>
+
+                        <button type="button" class="card reveal fade-bottom">
+                            <img src="./assets/img/participants/sunahana.webp" alt="Sunahana's icon" />
+                            <div class="card-content">
+                                <span class="title-sm">砂花</span>
+                                <span>2 周年おめでとう！いつもリスナーのことを考えてくれてありがとう。あおちゃんに出会えて本当に良かった。これからもずっと応援していますよ！</span>
+                            </div>
+                        </button>
+
+                        <button type="button" class="card reveal fade-bottom">
+                            <img src="./assets/img/participants/yagarasu.webp" alt="Yagurasu's icon" />
+                            <div class="card-content">
+                                <span class="title-sm">夜鴉</span>
+                                <span>2 周年おめでとうございます！挑戦や大変な事も多かったと思いますが、あおぐるみさんと乗り越えてきたの凄いです。あおちゃんにとって 3 年目も良い一年になりますように！</span>
+                            </div>
+                        </button>
+
+                        <button type="button" class="card reveal fade-bottom">
+                            <img src="./assets/img/participants/maanchan.webp" alt="Maanchan's icon" />
+                            <div class="card-content">
+                                <span class="title-sm">まおんちゃん</span>
+                                <span>2 周年おめでとう☆ 2 年目は本当にいろんなことに挑戦してあおちゃんもプロプロも飛躍した1年になったね！3 年目も更に活躍する姿を見たいからこれからも応援してるよ～！</span>
+                            </div>
+                        </button>
+
+                        <button type="button" class="card reveal fade-bottom">
+                            <img src="./assets/img/participants/chibisuke.webp" alt="Chibisuke's icon" />
+                            <div class="card-content">
+                                <span class="title-sm">Chibisuke</span>
+                                <span>デビュー 2 周年おめでとう！あおちゃんが歌枠やゲームを楽しんでるのを見ててまた配信に来たいと思えるし、朝くまもいつも助かってるよ、3 年目もヨロシクね☆*。</span>
+                            </div>
+                        </button>
+
+                        <button type="button" class="card reveal fade-bottom">
+                            <img src="./assets/img/participants/ritmo.webp" alt="Ritmo's icon" />
+                            <div class="card-content">
+                                <span class="title-sm">リツモ</span>
+                                <span>あおちゃん、二周年おめでとう！</span>
+                            </div>
+                        </button>
+
+                        <button type="button" class="card reveal fade-bottom">
+                            <img src="./assets/img/participants/aoihachi.webp" alt="Aoihachi's icon" />
+                            <div class="card-content">
+                                <span class="title-sm">あおいはち</span>
+                                <span>2 周年おめでとう～～ o(*≧▽≦)ツ～ あおいちゃんの素敵で美しい歌声のおかげで楽しい 1 年を過ごせたよ！3 年目よろしくね～</span>
+                            </div>
+                        </button>
+
+                        <button type="button" class="card reveal fade-bottom">
+                            <img src="./assets/img/participants/noapyoi.webp" alt="Noapyoi's icon" />
+                            <div class="card-content">
+                                <span class="title-sm">ノアぴょい伯爵</span>
+                                <span>【祝 2 周年】デビューから 2 年経過おめでとう☆‧₊˚ あっという間の 1 年だったけどあおちゃんさらに成長したね◎ 3 年目もひっそりとお供させてもらうのでよろしゅう～</span>
+                            </div>
+                        </button>
+                    </div>
+
+                    <!-- # SP content -->
+                    <h3 class="title-sm">-Project: 心做し- の会</h3>
+                    <div class="card-list">
+                        <button type="button" class="card reveal fade-bottom" data-name="rinjin" onclick="playSound()">
+                            <img src="./assets/img/participants/rinjin.webp" alt="Rinjin's icon" />
                             <div class="card-content">
                                 <span class="title-sm">リンジン</span>
                                 <span>あおいちゃんデビュー 2 周年おめでとう、配信あんまりリアタイ出来ないけれど、歌枠よく聞いてるよ、社畜の心癒されて欲しかった、これからも宜しくね～</span>
                             </div>
                         </button>
-                        <button type="button" class="card">
-                            <img src="./assets/img/participants/ritmo.webp" alt="Who's icon" />
+                        <button type="button" class="card reveal fade-bottom" data-name="mainotechi" onclick="playSound()">
+                            <img src="./assets/img/participants/mainotechi.webp" alt="Mainotechi's icon" />
                             <div class="card-content">
-                                <span class="title-sm">リツモ</span>
-                                <span>あいうえお</span>
+                                <span class="title-sm">まいのてち</span>
+                                <span>あおいちゃん 2 周年おめでとうございます！あなたの歌声がたくさんの人を癒したよ！仕事でストレス溜まった時よくあなたのアーカイブを聞いて、精神を整えてる。これからもよろしくお願いします！</span>
                             </div>
                         </button>
-                        <button type="button" class="card">
-                            <img src="./assets/img/participants/ritmo.webp" alt="Who's icon" />
-                            <div class="card-content">
-                                <span class="title-sm">リツモ</span>
-                                <span>あいうえお</span>
-                            </div>
-                        </button>
-                        <button type="button" class="card">
-                            <img src="./assets/img/participants/ritmo.webp" alt="Who's icon" />
-                            <div class="card-content">
-                                <span class="title-sm">リツモ</span>
-                                <span>あいうえお</span>
-                            </div>
-                        </button>
-                        <button type="button" class="card">
-                            <img src="./assets/img/participants/ritmo.webp" alt="Who's icon" />
-                            <div class="card-content">
-                                <span class="title-sm">リツモ</span>
-                                <span>あいうえお</span>
-                            </div>
-                        </button>
-                        <button type="button" class="card">
-                            <img src="./assets/img/participants/ritmo.webp" alt="Who's icon" />
-                            <div class="card-content">
-                                <span class="title-sm">リツモ</span>
-                                <span>あいうえお</span>
-                            </div>
-                        </button>
-                        <button type="button" class="card">
-                            <img src="./assets/img/participants/ritmo.webp" alt="Who's icon" />
+                        <button type="button" class="card reveal fade-bottom" data-name="ritmo" onclick="playSound()">
+                            <img src="./assets/img/participants/ritmo.webp" alt="Ritmo's icon" />
                             <div class="card-content">
                                 <span class="title-sm">リツモ</span>
                                 <span>あいうえお</span>

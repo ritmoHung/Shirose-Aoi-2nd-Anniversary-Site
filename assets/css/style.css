@@ -58,6 +58,7 @@ body {
 .preloader {
     display: grid;
     position: fixed;
+    padding: var(--gap-8);
     inset: 0;
     z-index: 10000;
     place-items: center;
@@ -77,10 +78,8 @@ body {
     object-fit: contain;
     pointer-events: none;
 }
-#ios-motion-preloader {
-    padding: var(--gap-8);
+#permission-preloader {
     background-color: var(--bg-color);
-    visibility: hidden;
 }
 .fade-in {
     opacity: 100% !important;
@@ -287,7 +286,7 @@ body {
 .headings {
     display: grid;
     position: absolute;
-    top: 25%;
+    top: 22%;  /* 25% */
     text-align: center;
     font-style: italic;
     transform: skewY(-7deg);
@@ -413,7 +412,7 @@ body {
 .card > *:first-child {
     --img-radius: calc(var(--card-radius) - var(--card-border));
 
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 5 / 4;
     width: 100%;
     height: auto;
     object-fit: cover;
@@ -657,23 +656,72 @@ img.emoji {
 }
 
 .reveal {
-    transform: translateY(150px);
     opacity: 0;
-    transition: transform 1s, opacity 1s;
+    transition: opacity 1s;
 }
 .reveal.active {
-    transform: translateY(0px);
     opacity: 1;
+}
+.active.fade-front {
+    animation: fade-front 2s cubic-bezier(0.230, 1.000, 0.320, 1.000);
+}
+.active.fade-top-delay-75 {
+    animation: fade-top-delay-75 2.75s cubic-bezier(0.230, 1.000, 0.320, 1.000);
+}
+.active.fade-top-delay-100 {
+    animation: fade-top-delay-100 3s cubic-bezier(0.230, 1.000, 0.320, 1.000);
+}
+.active.fade-bottom {
+    animation: fade-bottom 0.8s ease-in-out;
 }
 
-.reveal-tachie {
-    opacity: 0.4;
-    transform: scale(1.1);
+@keyframes fade-front {
+    0% {
+        opacity: 0.4;
+        transform: scale(1.2);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
-.reveal-tachie.active {
-    opacity: 1;
-    transform: scale(1);
-    transition: transform 2s cubic-bezier(0.230, 1.000, 0.320, 1.000);
+@keyframes fade-top-delay-75 {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    27.5% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes fade-top-delay-100 {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    33.3% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes fade-bottom {
+    0% {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .unscrollable {

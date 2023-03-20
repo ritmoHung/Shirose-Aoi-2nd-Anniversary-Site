@@ -1,4 +1,4 @@
-// * Twemoji replacing
+// * Twemoji replacing ------------------------------------------------------------------
 const emo = () => {
     twemoji.parse(document.body, {
         folder: "svg", 
@@ -9,7 +9,7 @@ window.addEventListener('load', emo);
 
 
 
-// * Parallax Sizing
+// * Parallax Sizing --------------------------------------------------------------------
 const tachieSizing = () => {
     var tachieContainers = document.querySelectorAll('.tachie-container');
     var viewportRatio = vw(100) / vh(100);
@@ -51,7 +51,13 @@ window.addEventListener('mousemove', function(event) {
     if(!enableOnOrient) tachieParallaxOnMouse();
 });
 
-// * Mobile Detection
+
+
+
+// * Mobile Detection -------------------------------------------------------------------
+// ! Permission preloader now shows regardless of devices
+let isiOSMobile = (/iPad|iPhone|iPod/.test(navigator.userAgent) || 
+                  (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1));
 var enableOnOrient = false;
 function getMotion() {
     // ! This remains touch-enabled Windows laptop with deviceorientation-enabled Chrome
@@ -62,9 +68,18 @@ function getMotion() {
         enableOnOrient = true;
     }
 }
-// * iOS Mobile permission granting
-const getMotionOnIOS = () => {
-    // # Request permission for iOS 13+ devices
+if(!isiOSMobile) {
+    getMotion();
+}
+
+// * Audio & iOS motion permission granting
+var audioBGM = new Audio('./assets/audio/DEMO_128K.mp3');
+function playBGM() {
+    audioBGM.currentTime = 0;
+    audioBGM.play();
+}
+const getAllPermission = () => {
+    // # Request motion permission for iOS 13+ devices
     if(isiOSMobile && typeof DeviceMotionEvent.requestPermission === "function") {
         DeviceMotionEvent.requestPermission().then(response => {
             if (response == 'granted') {
@@ -78,14 +93,17 @@ const getMotionOnIOS = () => {
         });
     }
     // # Closes the motion-preloader regardlessly, then enable body scroll
-    var iosMotionPreloader = document.getElementById('ios-motion-preloader');
+    var iosMotionPreloader = document.getElementById('permission-preloader');
     iosMotionPreloader.classList.add('fade-out');
     document.body.classList.remove('unscrollable');
     sleep(200).then(() => { iosMotionPreloader.style.display = "none"; });
+    // # ... then play the BGM. Nice work-around lol
+    playBGM();
 }
-if(!isiOSMobile) {
-    getMotion();
-}
+audioBGM.addEventListener('ended', function() {
+    this.currentTime = 0;
+    this.play();
+})
 
 function clamp(val, min, max) {
     return (val > max) ? max : ((val < min) ? min : val);
@@ -136,7 +154,23 @@ window.addEventListener('deviceorientation', function(event) {
 
 
 
-// * Arrow: Scroll Down Indicator
+// * particles.js, cannot get tsParticles to work :( ------------------------------------
+particlesJS.load('snowflakes', './assets/js/particles-config.json');
+particlesJS.load('snowflakes-behind', './assets/js/particles-config.json');
+    
+const snowflakeBehindVis = () => {
+    if(window.scrollY > vh(60)) {
+        var snowflakeBehind = document.getElementById('snowflakes-behind');
+        snowflakeBehind.style.display = "none";
+    }
+    else {
+        snowflakeBehind.style.display = "initial";
+    }
+}
+
+
+
+// * Arrow: Scroll Down Indicator -------------------------------------------------------
 const scrollDown = () => {
     document.documentElement.scrollTop = vh(100);
 }
@@ -155,7 +189,7 @@ window.addEventListener('scroll', scrollDownArrowVis);
 
 
 
-// * Element reveal animation
+// * Element reveal animation -----------------------------------------------------------
 function reveal() {
     var reveals = document.querySelectorAll(".reveal");
     for(var index = 0; index < reveals.length; index++) {
@@ -174,38 +208,26 @@ function reveal() {
 reveal();
 window.addEventListener('scroll', reveal);
 
-function revealTachie() {
-    var header = document.getElementsByTagName("header")[0];
-    header.classList.add("active");
-}
-window.addEventListener('load', revealTachie);
 
 
-
-// * Mute button
+// * Mute button ------------------------------------------------------------------------
 const muteToggle = () => {
-    var muteBtn = document.getElementById('mute-btn');
     var muteBtnIcon = document.getElementById('mute-btn-icon');
-    if(muteBtn.checked) {
+    if(audioBGM.volume) {
+        audioBGM.volume = 0;
         muteBtnIcon.textContent = "volume_mute";
     }
     else {
+        audioBGM.volume = 1.0;
         muteBtnIcon.textContent = "volume_up";
     }
 }
 
 
 
-// ? particles.js, cannot get tsParticles to work :(
-particlesJS.load('snowflakes', './assets/js/particles-config.json');
-particlesJS.load('snowflakes-behind', './assets/js/particles-config.json');
-
-const snowflakeBehindVis = () => {
-    if(window.scrollY > vh(60)) {
-        var snowflakeBehind = document.getElementById('snowflakes-behind');
-        snowflakeBehind.style.display = "none";
-    }
-    else {
-        snowflakeBehind.style.display = "initial";
-    }
+// * Play sound
+var audioSFX = new Audio('./assets/audio/notarium.wav');
+function playSound() {
+    audioSFX.currentTime = 0;
+    audioSFX.play();
 }

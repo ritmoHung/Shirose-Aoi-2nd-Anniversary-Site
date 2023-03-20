@@ -7,22 +7,8 @@ function sleep(ms) {
 const fade = () => {
     const preloader = document.getElementById('preloader');
     preloader.classList.add('fade-out');
-    document.body.classList.remove('unscrollable');
-}
-
-let isiOSMobile = (/iPad|iPhone|iPod/.test(navigator.userAgent) || 
-                  (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1));
-const iosMotionPreloader = () => {
-    if(isiOSMobile) {
-        var iosMotionPreloader = document.getElementById('ios-motion-preloader');
-        iosMotionPreloader.style.visibility = "visible";
-        // # Set body unscrollable again
-        // # so user cannot scroll "after preloader" and "before permission granted"
-        document.body.classList.add('unscrollable');
-    }
 }
 window.addEventListener('load', fade);
-window.addEventListener('load', iosMotionPreloader);
 
 
 
