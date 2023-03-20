@@ -97,6 +97,9 @@ const getAllPermission = () => {
     iosMotionPreloader.classList.add('fade-out');
     document.body.classList.remove('unscrollable');
     sleep(200).then(() => { iosMotionPreloader.style.display = "none"; });
+    // # Reveal: Check the scroll position once & add eventListener
+    reveal();
+    window.addEventListener('scroll', reveal);
     // # ... then play the BGM. Nice work-around lol
     playBGM();
 }
@@ -190,6 +193,7 @@ window.addEventListener('scroll', scrollDownArrowVis);
 
 
 // * Element reveal animation -----------------------------------------------------------
+// ! Add to eventListner when permission button pressed instead of onload
 function reveal() {
     var reveals = document.querySelectorAll(".reveal");
     for(var index = 0; index < reveals.length; index++) {
@@ -204,9 +208,6 @@ function reveal() {
         }
     }
 }
-// # Check the scroll position on page load
-reveal();
-window.addEventListener('scroll', reveal);
 
 
 
@@ -225,7 +226,7 @@ const muteToggle = () => {
 
 
 
-// * Play sound
+// * Play sound -------------------------------------------------------------------------
 var audioSFX = new Audio('./assets/audio/notarium.wav');
 function playSound() {
     audioSFX.currentTime = 0;
