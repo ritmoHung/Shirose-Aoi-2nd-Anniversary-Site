@@ -100,6 +100,7 @@ const getAllPermission = () => {
     // # Reveal: Check the scroll position once & add eventListener
     reveal();
     window.addEventListener('scroll', reveal);
+    window.addEventListener('resize', reveal);
     // # ... then play the BGM. Nice work-around lol
     playBGM();
 }
@@ -232,3 +233,13 @@ function playSound() {
     audioSFX.currentTime = 0;
     audioSFX.play();
 }
+
+
+
+// * Close navbar menu
+const navLinks = document.querySelectorAll('.nav-item')
+const menuToggle = document.getElementById('navbarSupportedContent')
+const bsCollapse = new bootstrap.Collapse(menuToggle)
+navLinks.forEach((l) => {
+    l.addEventListener('click', () => { bsCollapse.toggle() })
+})
