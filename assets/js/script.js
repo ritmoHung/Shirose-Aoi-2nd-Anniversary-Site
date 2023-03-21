@@ -236,10 +236,12 @@ function playSound() {
 
 
 
-// * Close navbar menu
-const navLinks = document.querySelectorAll('.nav-item')
-const menuToggle = document.getElementById('navbarSupportedContent')
-const bsCollapse = new bootstrap.Collapse(menuToggle)
-navLinks.forEach((l) => {
-    l.addEventListener('click', () => { bsCollapse.toggle() })
-})
+// * Close navbar menu ------------------------------------------------------------------
+const navLinks = document.querySelectorAll('.nav-item');
+const menuToggle = document.getElementById('navbarSupportedContent');
+if(window.matchMedia("(max-width: 576px)")) {
+    const bsCollapse = new bootstrap.Collapse(menuToggle, {toggle: false});
+    navLinks.forEach((index) => {
+        index.addEventListener('click', () => { bsCollapse.toggle() });
+    })
+}
