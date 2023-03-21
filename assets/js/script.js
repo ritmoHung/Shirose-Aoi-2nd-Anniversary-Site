@@ -53,6 +53,25 @@ window.addEventListener('mousemove', function(event) {
 
 
 
+// * Audio funtions ---------------------------------------------------------------------
+const bgm = new Audio('./assets/audio/DEMO_128K.mp3');
+var gainNode;
+function playBGM() {
+    var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    var source = audioCtx.createMediaElementSource(bgm);
+    gainNode = audioCtx.createGain();
+    source.connect(gainNode);
+    gainNode.connect(audioCtx.destination);
+
+    bgm.currentTime = 0;
+    bgm.play();
+}
+bgm.addEventListener('ended', function() {
+    this.currentTime = 0;
+    this.play();
+})
+
+
 
 // * Mobile Detection -------------------------------------------------------------------
 // ! Permission preloader now shows regardless of devices
@@ -73,11 +92,6 @@ if(!isiOSMobile) {
 }
 
 // * Audio & iOS motion permission granting
-var audioBGM = new Audio('./assets/audio/DEMO_128K.mp3');
-function playBGM() {
-    audioBGM.currentTime = 0;
-    audioBGM.play();
-}
 const getAllPermission = () => {
     // # Request motion permission for iOS 13+ devices
     if(isiOSMobile && typeof DeviceMotionEvent.requestPermission === "function") {
@@ -104,10 +118,6 @@ const getAllPermission = () => {
     // # ... then play the BGM. Nice work-around lol
     playBGM();
 }
-audioBGM.addEventListener('ended', function() {
-    this.currentTime = 0;
-    this.play();
-})
 
 function clamp(val, min, max) {
     return (val > max) ? max : ((val < min) ? min : val);
@@ -215,12 +225,12 @@ function reveal() {
 // * Mute button ------------------------------------------------------------------------
 const muteToggle = () => {
     var muteBtnIcon = document.getElementById('mute-btn-icon');
-    if(audioBGM.volume) {
-        audioBGM.volume = 0;
+    if(gainNode.gain.value) {
+        gainNode.gain.linearRampToValueAtTime(0, bgm.currentTime + 0.75);
         muteBtnIcon.textContent = "volume_mute";
     }
     else {
-        audioBGM.volume = 1.0;
+        gainNode.gain.linearRampToValueAtTime(1, bgm.currentTime + 0.75);
         muteBtnIcon.textContent = "volume_up";
     }
 }
