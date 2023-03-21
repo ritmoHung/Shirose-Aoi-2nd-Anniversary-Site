@@ -67,9 +67,9 @@ body {
 
     text-align: justify;
     background-color: var(--color-deep-blue);
-    transition: opacity, visibility;
-    transition-duration: calc(2 * var(--trans-duration));
-    transition-timing-function: ease-in-out;
+    transition: opacity, visibility, transform;
+    transition-duration: calc(6 * var(--trans-duration));
+    transition-timing-function: cubic-bezier(0.230, 1.000, 0.320, 1.000);
 }
 .preloader img {
     aspect-ratio: 1 / 1;
@@ -88,6 +88,11 @@ body {
 .fade-out {
     opacity: 0%;
     visibility: hidden;
+}
+.fade-out-front {
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.9);
 }
 
 .main-layout {
@@ -352,6 +357,7 @@ body {
 	aspect-ratio: 16 / 9;
 	height: 100%;
 	width: 100%;
+    border-radius: 1rem;
 }
 .main-article > *:not(:last-child):after {
     content: '．．．';
@@ -441,7 +447,7 @@ body {
         width: 100%;
     }
 }
-@media screen and (max-width: 576px) and (min-width: 359px) {
+@media screen and (max-width: 576px) and (min-width: 360px) {
     .card-list {
         grid-template-columns: 1fr;
     }
@@ -477,6 +483,13 @@ body {
     .card > *:first-child {
         aspect-ratio: 3 / 2;
     }
+}
+
+.video-container {
+    width: 100%;
+    display: flex;
+    column-gap: var(--gap-3);
+    align-items: center;
 }
 
 /* -------------------------- STYLES -------------------------- */
@@ -730,6 +743,10 @@ img.emoji {
 
 /* Selection */
 ::selection {
+    color: var(--sel-text-color);
+    background: var(--sel-bg-color);
+}
+::-moz-selection {
     color: var(--sel-text-color);
     background: var(--sel-bg-color);
 }
