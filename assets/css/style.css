@@ -71,8 +71,8 @@ body {
     text-align: justify;
     background-color: var(--color-deep-blue);
     transition: opacity, visibility, transform;
-    transition-duration: calc(6 * var(--trans-duration));
-    transition-timing-function: var(--ease-out-quint);
+    transition-duration: calc(2 * var(--trans-duration));
+    
 }
 .preloader img {
     aspect-ratio: 1 / 1;
@@ -83,6 +83,8 @@ body {
 }
 #permission-preloader {
     background-color: var(--bg-color);
+    transition-duration: calc(6 * var(--trans-duration));
+    transition-timing-function: var(--ease-out-quint);
 }
 .fade-in {
     opacity: 100% !important;
@@ -91,11 +93,6 @@ body {
 .fade-out {
     opacity: 0%;
     visibility: hidden;
-}
-.fade-out-front {
-    opacity: 0;
-    visibility: hidden;
-    transform: scale(0.9);
 }
 
 .main-layout {

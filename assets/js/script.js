@@ -94,7 +94,7 @@ const getAllPermission = () => {
     }
     // # Closes the motion-preloader regardlessly, then enable body scroll
     var iosMotionPreloader = document.getElementById('permission-preloader');
-    iosMotionPreloader.classList.add('fade-out-front');
+    iosMotionPreloader.classList.add('fade-out');
     document.body.classList.remove('unscrollable');
     sleep(200).then(() => { iosMotionPreloader.style.display = "none"; });
     // # Reveal: Check the scroll position once & add eventListener

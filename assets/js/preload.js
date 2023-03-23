@@ -4,11 +4,11 @@ function sleep(ms) {
 }
 
 // * Preloaders
-const fade = () => {
+const fadePreload = () => {
     const preloader = document.getElementById('preloader');
     preloader.classList.add('fade-out');
 }
-window.addEventListener('load', fade);
+window.addEventListener('load', fadePreload);
 
 
 
