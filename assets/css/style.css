@@ -71,9 +71,7 @@ body {
     text-align: justify;
     background-color: var(--color-deep-blue);
     transition: opacity, visibility, transform;
-    transition-duration: calc(6 * var(--trans-duration));
-    transition-timing-function: var(--ease-out-quint);
-    
+    transition-duration: calc(2 * var(--trans-duration));
 }
 .preloader img {
     aspect-ratio: 1 / 1;
@@ -84,8 +82,22 @@ body {
 }
 #permission-preloader {
     background-color: var(--color-light-blue);
+    transition-duration: calc(4 * var(--trans-duration));
+    transition-timing-function: var(--ease-out-quint);
+}
+
+.guru-container {
+    max-width: fit-content;
+    position: relative;
 }
 #guru {
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    -webkit-transform-origin: center center;
+            transform-origin: center center;
     -webkit-animation: loader 1s linear infinite;
 	        animation: loader 1s linear infinite;
 }
@@ -96,15 +108,6 @@ body {
 @keyframes loader {
 	0%   { transform: rotate(0deg); }
 	100% { transform: rotate(360deg); }
-}
-
-.fade-in {
-    opacity: 100% !important;
-    visibility: visible !important;
-}
-.fade-out {
-    opacity: 0%;
-    visibility: hidden;
 }
 
 .main-layout {
@@ -693,8 +696,9 @@ img.emoji {
 .transition {
     transition: all ease-in-out var(--trans-duration);
 }
-.navbar, .nav-link, .nav-link::after, .fab-container, 
-#scrollDownArrow, 
+.preloader img,
+.navbar, .nav-link, .nav-link::after, .fab-container,
+#scrollDownArrow,
 .btn, .btn > * {
     transition: all ease-in-out var(--trans-duration);
 }
@@ -703,6 +707,15 @@ img.emoji {
     -moz-transition-property: none;
     -o-transition-property: none;
     transition-property: none;
+}
+
+.fade-in {
+    opacity: 100% !important;
+    visibility: visible !important;
+}
+.fade-out {
+    opacity: 0%;
+    visibility: hidden;
 }
 
 .reveal {
