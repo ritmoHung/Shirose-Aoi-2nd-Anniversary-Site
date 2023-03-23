@@ -3,12 +3,12 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-// * Preloaders
-const fadePreload = () => {
+// * Preloader
+const fadePreloader = () => {
     const preloader = document.getElementById('preloader');
     preloader.classList.add('fade-out');
 }
-window.addEventListener('load', fadePreload);
+window.addEventListener('load', fadePreloader);
 
 
 

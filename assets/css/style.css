@@ -24,7 +24,7 @@
     --color-white: #F5F8F8;        /* Seasalt */
     --color-light-blue: #ADD9F4;   /* Uranian Blue */
     --color-medium-blue: #4EA5D9;  /* Picton Blue */
-    --color-deep-blue: #40618C;    /* Lapis Lazuli */
+    --color-deep-blue: #40618C;    /* Lapis Lazuli */ /* rgb(64, 97, 140) */
     --color-sunset: rgb(255, 158, 94, 0.5);  /* #FF9E5E */
 }
 :root {
@@ -61,7 +61,7 @@ body {
 .preloader {
     display: grid;
     position: fixed;
-    padding: var(--gap-8);
+    padding: var(--gap-6);
     inset: 0;
     z-index: 10000;
     place-items: center;
@@ -71,21 +71,33 @@ body {
     text-align: justify;
     background-color: var(--color-deep-blue);
     transition: opacity, visibility, transform;
-    transition-duration: calc(2 * var(--trans-duration));
+    transition-duration: calc(6 * var(--trans-duration));
+    transition-timing-function: var(--ease-out-quint);
     
 }
 .preloader img {
     aspect-ratio: 1 / 1;
-    height: 256px;
-    width: auto;
+    height: auto;
+    width: min(256px, 70vw);
     object-fit: contain;
     pointer-events: none;
 }
 #permission-preloader {
-    background-color: var(--bg-color);
-    transition-duration: calc(6 * var(--trans-duration));
-    transition-timing-function: var(--ease-out-quint);
+    background-color: var(--color-light-blue);
 }
+#guru {
+    -webkit-animation: loader 1s linear infinite;
+	        animation: loader 1s linear infinite;
+}
+@-webkit-keyframes loader {
+	0%   { -webkit-transform: rotate(0deg); }
+	100% { -webkit-transform: rotate(360deg); }
+}
+@keyframes loader {
+	0%   { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
+
 .fade-in {
     opacity: 100% !important;
     visibility: visible !important;
@@ -560,12 +572,6 @@ body {
 .btn-fab:active {
     transform: scale(90%);
 }
-input[type=checkbox] {
-    height: 0;
-	width: 0;
-    display: none;
-	visibility: hidden;
-}
 
 /* Text */
 .heading {
@@ -676,6 +682,10 @@ img.emoji {
 
 /* Shadows */
 .text-shadow {
+    /* --color-deep-blue but with opacity 10% */
+    text-shadow: 0.05em 0.05em 0.2em rgb(64, 97, 140, 0.1);
+}
+.text-shadow-sunset {
     text-shadow: 0.2em 0.2em 1.5em var(--shadow-color);
 }
 
