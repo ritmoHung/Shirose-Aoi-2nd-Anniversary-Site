@@ -389,14 +389,21 @@ body {
 }
 
 .footer-section {
-    height: 5rem;
-    /* ! Affects mobiles other than iPhone??
-    padding-bottom: env(safe-area-inset-bottom); */
+    min-height: 5rem;
 
     display: grid;
     place-content: center;
+    row-gap: var(--gap-4);
     background: var(--color-deep-blue);
     border-radius: 2rem 2rem 0 0;
+}
+.footer-section a {
+    color: var(--color-light-blue);
+    text-decoration: none !important;
+}
+
+i {
+    font-family: 'FontAwesome';
 }
 
 /* -------------------------- STRUCT -------------------------- */
