@@ -230,11 +230,13 @@ const muteToggle = () => {
     var muteBtnIcon = document.getElementById('mute-btn-icon');
     if(gainNode.gain.value) {
         gainNode.gain.linearRampToValueAtTime(0, bgm.currentTime + 0.75);
-        muteBtnIcon.textContent = "volume_mute";
+        muteBtnIcon.classList.remove('fa-volume-high');
+        muteBtnIcon.classList.add('fa-volume-off');
     }
     else {
         gainNode.gain.linearRampToValueAtTime(1, bgm.currentTime + 0.75);
-        muteBtnIcon.textContent = "volume_up";
+        muteBtnIcon.classList.remove('fa-volume-off');
+        muteBtnIcon.classList.add('fa-volume-high');
     }
 }
 

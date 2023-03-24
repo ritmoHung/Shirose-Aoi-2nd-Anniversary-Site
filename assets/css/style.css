@@ -391,9 +391,7 @@ body {
 .footer-section {
     min-height: 5rem;
 
-    display: grid;
-    place-content: center;
-    row-gap: var(--gap-4);
+    text-align: center;
     background: var(--color-deep-blue);
     border-radius: 2rem 2rem 0 0;
 }
@@ -404,6 +402,8 @@ body {
 
 i {
     font-family: 'FontAwesome';
+    font-size: 1.1em;
+    font-style: normal;
 }
 
 /* -------------------------- STRUCT -------------------------- */
@@ -570,7 +570,9 @@ i {
     --fab-content-size: 36px;
     aspect-ratio: 1 / 1;
     width: inherit;
+    min-width: 3rem;
     
+    color: var(--color-white);
     background: var(--navbar-color) !important;
     border-radius: 50%;
     border: none;
