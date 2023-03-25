@@ -54,7 +54,7 @@ window.addEventListener('mousemove', function(event) {
 
 
 // * Audio funtions ---------------------------------------------------------------------
-const bgm = new Audio('./assets/audio/DEMO_128K.mp3');
+const bgm = new Audio('./assets/audio/bgm.mp3');
 var gainNode;
 function playBGM() {
     var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
