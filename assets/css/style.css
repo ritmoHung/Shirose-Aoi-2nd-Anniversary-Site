@@ -88,24 +88,50 @@ body {
 
 .guru-container {
     max-width: fit-content;
+    display: grid;
     position: relative;
+    place-items: center;
+    place-content: center;
+    grid-template-areas: "stack";
 }
+.guru-container > * {
+    grid-area: stack; 
+}
+
+.guru-board {
+    --orbit-radius: calc(1%);
+    display: inline-block;
+    position: relative;
+    -webkit-transform-origin: center center;
+            transform-origin: center center;
+    -webkit-animation: guruboard 0.5s linear infinite;
+	        animation: guruboard 0.5s linear infinite;
+}
+@-webkit-keyframes guruboard {
+    0%   { -webkit-transform: rotate(0deg) translateX(var(--orbit-radius)) rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg) translateX(var(--orbit-radius)) rotate(-360deg); }
+}
+@keyframes guruboard {
+    0%   { transform: rotate(0deg) translateX(var(--orbit-radius)) rotate(0deg); }
+    100% { transform: rotate(360deg) translateX(var(--orbit-radius)) rotate(-360deg); }
+}
+
 #guru {
     display: inline-block;
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 36%;
     z-index: 1;
     -webkit-transform-origin: center center;
             transform-origin: center center;
-    -webkit-animation: loader 1s linear infinite;
-	        animation: loader 1s linear infinite;
+    -webkit-animation: gurumi 1s linear infinite;
+	        animation: gurumi 1s linear infinite;
 }
-@-webkit-keyframes loader {
+@-webkit-keyframes gurumi {
 	0%   { -webkit-transform: rotate(0deg); }
 	100% { -webkit-transform: rotate(360deg); }
 }
-@keyframes loader {
+@keyframes gurumi {
 	0%   { transform: rotate(0deg); }
 	100% { transform: rotate(360deg); }
 }
@@ -690,6 +716,11 @@ img.emoji {
   'wght' 400,
   'GRAD' 0,
   'opsz' 24
+}
+
+/* Color styles */
+.sa-light-blue {
+    color: var(--color-light-blue);
 }
 
 /* Shadows */
