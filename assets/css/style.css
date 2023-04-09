@@ -627,27 +627,29 @@ i {
 .btn:hover {
     color: var(--color-light-blue);
     fill: var(--color-light-blue);
-    background: inherit;
-    border: inherit;
-    outline: inherit;
 }
 .btn:active {
-    color: var(--highlight-color);
-    fill: var(--highlight-color);
-    background: inherit;
-    border: inherit;
-    outline: inherit;
+    color: var(--highlight-color) !important;
+    fill: var(--highlight-color) !important;
 }
 
 /* Pill button */
-.btn-pill {
+.btn-pill, .btn-pill:hover, .btn-pill:active {
     padding-left: var(--gap-3);
     padding-right: var(--gap-3);
 
     color: var(--color-deep-blue);
+    fill: var(--color-deep-blue);
     font-weight: 400;
     background: var(--text-color) !important;
     border-radius: 100vw;
+}
+.btn-pill:hover {
+    --pill-border: 0.2rem;
+    -webkit-box-shadow: var(--pill-border) var(--pill-border) var(--color-deep-blue);
+    box-shadow: var(--pill-border) var(--pill-border) var(--color-deep-blue);
+    transition: -webkit-box-shadow var(--trans-duration), box-shadow var(--trans-duration);
+    transition-timing-function: ease-in-out;
 }
 
 /* Floating action button */
@@ -665,6 +667,10 @@ i {
 .btn-fab svg {
     height: var(--fab-content-size);
     width: auto;
+}
+.btn-fab:hover {
+    color: var(--color-light-blue);
+    fill: var(--color-light-blue);
 }
 .btn-fab:active {
     transform: scale(90%);
@@ -809,7 +815,6 @@ img.emoji {
 .transition {
     transition: all ease-in-out var(--trans-duration);
 }
-.preloader img,
 .navbar, .nav-link, .nav-link::after, .fab-container, .btn {
     transition: all ease-in-out var(--trans-duration);
 }
@@ -847,7 +852,7 @@ img.emoji {
         animation: fade-in-top-d100 3s var(--ease-out-quint);
     }
     .active.fade-in-bottom {
-        animation: fade-in-bottom 0.8s ease-in-out;
+        animation: fade-in-bottom 0.5s ease-in-out;
     }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -905,7 +910,7 @@ img.emoji {
 @keyframes fade-in-bottom {
     0% {
         opacity: 0;
-        transform: translateY(100px);
+        transform: translateY(75px);
     }
     100% {
         opacity: 1;
