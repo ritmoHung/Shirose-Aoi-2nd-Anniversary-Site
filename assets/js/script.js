@@ -53,7 +53,7 @@ window.addEventListener('mousemove', function(event) {
 
 
 
-// * Audio funtions ---------------------------------------------------------------------
+// * Audio functions ---------------------------------------------------------------------
 const bgm = new Audio('./assets/audio/bgm.mp3');
 var gainNode;
 function playBGM() {
@@ -243,10 +243,18 @@ const muteToggle = () => {
 
 
 // * Play sound -------------------------------------------------------------------------
-var audioSFX = new Audio('./assets/audio/notarium.wav');
-function playSound() {
-    audioSFX.currentTime = 0;
-    audioSFX.play();
+let audio;
+function playMsg(elementId) {
+    // # Pause previous audio
+    if(audio && !audio.paused) audio.pause();
+
+    // Path to new audio by element ID
+    var path = "./assets/audio/msg/";
+    var name = String(elementId).replace('a-', '');
+    audio = new Audio(path.concat(name, ".mp3"));
+
+    audio.currentTime = 0;
+    audio.play();
 }
 
 

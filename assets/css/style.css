@@ -28,6 +28,8 @@
     --color-sunset: rgb(255, 158, 94, 0.5);  /* #FF9E5E */
 }
 :root {
+    --section-row-gap: var(--gap-8);
+
     --bg-color: var(--color-light-blue);
     --text-color: var(--color-white);
     --card-text-color: var(--color-deep-blue);
@@ -71,7 +73,6 @@ body {
     text-align: justify;
     background-color: var(--color-deep-blue);
     transition: opacity, visibility, transform;
-    transition-duration: calc(2 * var(--trans-duration));
 }
 .preloader img {
     aspect-ratio: 1 / 1;
@@ -82,8 +83,23 @@ body {
 }
 #permission-preloader {
     background-color: var(--color-light-blue);
-    transition-duration: calc(4 * var(--trans-duration));
     transition-timing-function: var(--ease-out-quint);
+}
+@media (prefers-reduced-motion: no-preference) {
+    .preloader {
+        transition-duration: calc(2 * var(--trans-duration));
+    }
+    #permission-preloader {
+        transition-duration: calc(4 * var(--trans-duration));
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    .preloader {
+        transition-duration: var(--trans-duration);
+    }
+    #permission-preloader {
+        transition-duration: calc(2 * var(--trans-duration));
+    }
 }
 
 .guru-container {
@@ -119,13 +135,20 @@ body {
 #guru {
     display: inline-block;
     position: absolute;
-    top: 50%;
+    top: 51%;
     left: 36%;
     z-index: 1;
+    font-size: 2.5em;
+    font-weight: 500;
     -webkit-transform-origin: center center;
             transform-origin: center center;
     -webkit-animation: gurumi 1s linear infinite;
 	        animation: gurumi 1s linear infinite;
+}
+@media screen and (max-width: 360px) {
+    #guru {
+        font-size: 11.11vw;
+    }
 }
 @-webkit-keyframes gurumi {
 	0%   { -webkit-transform: rotate(0deg); }
@@ -356,19 +379,19 @@ body {
 
 #scrollDownArrow {
     position: absolute;
-    bottom: calc(-1 * var(--inset-width) + 2rem);
+    bottom: calc(2rem - var(--inset-width));
     z-index: 2;
     animation: float 1.5s ease-in-out infinite;
 }
 @keyframes float {
     0% {
-        margin-bottom: 0;
+        transform: translateY(0);
     }
     50% {
-        margin-bottom: 0.8rem;
+        transform: translateY(10px);
     }
     100% {
-        margin-bottom: 0;
+        transform: translateY(0);
     }
 }
 
@@ -388,21 +411,18 @@ body {
 
 .main-article {
     display: grid;
-    row-gap: var(--gap-8);
+    row-gap: var(--section-row-gap);
 }
 
 .main-article > * {
-    min-width: var(--main-min-width);
-    max-width: var(--main-max-width);
     width: 100%;
     margin: auto;
 
     display: grid;
     place-items: center;
-    row-gap: var(--gap-8);
-    column-gap: var(--gap-6);
+    row-gap: var(--gap-5);
 }
-.main-article section iframe {
+.main-article iframe {
 	aspect-ratio: 16 / 9;
 	height: 100%;
 	width: 100%;
@@ -410,9 +430,25 @@ body {
 }
 .main-article > *:not(:last-child):after {
     content: '．．．';
+    margin-top: var(--section-row-gap);
     color: var(--text-color);
     font-weight: 700;
 }
+
+section > h2 {
+    margin-bottom: var(--gap-4);
+}
+section > img {
+    max-width: 80%;
+    display: block;
+    margin: 0 auto;
+    background: var(--bg-color);
+}
+
+.titles {
+    text-align: center;
+}
+
 
 .footer-section {
     min-height: 5rem;
@@ -542,8 +578,22 @@ i {
     }
 }
 
+.button-list {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-items: center;
+    justify-content: center;
+    
+    row-gap: var(--gap-3);
+    column-gap: var(--gap-3);
+}
+
 .video-container {
     width: 100%;
+    margin-top: var(--gap-4);
+    margin-bottom: var(--gap-4);
+
     display: flex;
     flex-direction: column;
     row-gap: var(--gap-2);
@@ -562,8 +612,6 @@ i {
         max-width: 40%;
     }
 }
-
-/* -------------------------- STYLES -------------------------- */
 
 /* Buttons */
 .btn {
@@ -591,6 +639,17 @@ i {
     outline: inherit;
 }
 
+/* Pill button */
+.btn-pill {
+    padding-left: var(--gap-3);
+    padding-right: var(--gap-3);
+
+    color: var(--color-deep-blue);
+    font-weight: 400;
+    background: var(--text-color) !important;
+    border-radius: 100vw;
+}
+
 /* Floating action button */
 .btn-fab {
     --fab-content-size: 36px;
@@ -610,6 +669,14 @@ i {
 .btn-fab:active {
     transform: scale(90%);
 }
+
+a:focus-visible, .card:focus-visible, .btn:focus-visible {
+    color: var(--color-medium-blue);
+    outline: 3px solid var(--color-medium-blue);
+    outline-offset: 3px;
+}
+
+/* -------------------------- STYLES -------------------------- */
 
 /* Text */
 .heading {
@@ -722,6 +789,12 @@ img.emoji {
 .sa-light-blue {
     color: var(--color-light-blue);
 }
+.sa-medium-blue {
+    color: var(--color-medium-blue);
+}
+.sa-deep-blue {
+    color: var(--color-deep-blue);
+}
 
 /* Shadows */
 .text-shadow {
@@ -737,9 +810,7 @@ img.emoji {
     transition: all ease-in-out var(--trans-duration);
 }
 .preloader img,
-.navbar, .nav-link, .nav-link::after, .fab-container,
-#scrollDownArrow,
-.btn, .btn > * {
+.navbar, .nav-link, .nav-link::after, .fab-container, .btn {
     transition: all ease-in-out var(--trans-duration);
 }
 .transition-none {
@@ -765,19 +836,34 @@ img.emoji {
 .reveal.active {
     opacity: 1;
 }
-.active.fade-in-front {
-    animation: fade-in-front 2s var(--ease-out-quint);
+@media (prefers-reduced-motion: no-preference) {
+    .active.fade-in-front {
+        animation: fade-in-front 2s var(--ease-out-quint);
+    }
+    .active.fade-in-top-d75 {
+        animation: fade-in-top-d75 2.75s var(--ease-out-quint);
+    }
+    .active.fade-in-top-d100 {
+        animation: fade-in-top-d100 3s var(--ease-out-quint);
+    }
+    .active.fade-in-bottom {
+        animation: fade-in-bottom 0.8s ease-in-out;
+    }
 }
-.active.fade-in-top-d75 {
-    animation: fade-in-top-d75 2.75s var(--ease-out-quint);
+@media (prefers-reduced-motion: reduce) {
+    .active.fade-in-front {
+        animation: fade-in-front 0s var(--ease-out-quint);
+    }
+    .active.fade-in-top-d75 {
+        animation: fade-in-top-d75 2.75s var(--ease-out-quint);
+    }
+    .active.fade-in-top-d100 {
+        animation: fade-in-top-d100 3s var(--ease-out-quint);
+    }
+    .active.fade-in-bottom {
+        animation: fade-in-bottom 0.2s ease-in-out;
+    }
 }
-.active.fade-in-top-d100 {
-    animation: fade-in-top-d100 3s var(--ease-out-quint);
-}
-.active.fade-in-bottom {
-    animation: fade-in-bottom 0.8s ease-in-out;
-}
-
 @keyframes fade-in-front {
     0% {
         opacity: 0.4;

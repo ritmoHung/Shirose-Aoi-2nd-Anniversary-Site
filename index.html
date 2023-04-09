@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="og:title" content="白瀬あおい二周年記念ウェブ">
-    <meta property="og:image" content="https://ritmohung.github.io/Shirose-Aoi-2nd-Anniversary-Site/assets/img/aoi-preload.webp">
+    <meta property="og:image" content="https://ritmohung.github.io/Shirose-Aoi-2nd-Anniversary-Site/assets/img/thumbnail.webp">
     <meta property="og:description" content="あおちゃん，2 周年おめでとう！">
     <title>白瀬あおい二周年記念ウェブ</title>
 
@@ -29,7 +29,7 @@
         <img src="./assets/img/load/aoi-q.webp" alt="Shirose Aoi Q ver. drawn by Mr. Crow" />
         <span class="title-sm text-shadow">最高のブラウジング体験を得るために、許可を与えてください。</span>
         <p class="text-shadow">iOSの制約上、センサーデータの取得にはユーザーからの許可が必要であり、ホームページの画像に使用されます。<br>ご同意いただける場合は、下のボタンを押してください。</p>
-        <button type="button" class="btn btn-fab" onclick="getAllPermission()">
+        <button type="button" class="btn btn-fab" title="Grant permission for motion access and audio playing" onclick="getAllPermission()">
             <i class="fa-solid fa-check"></i>
         </button>
     </div>
@@ -38,7 +38,7 @@
             <img src="./assets/img/load/aoi-q-no-hand.webp" alt="Shirose Aoi Q ver. (no hands) drawn by Mr. Crow" />
             <div class="guru-board">
                 <img src="./assets/img/load/aoi-q-board.webp" alt="Shirose Aoi Q ver. (holding a board) drawn by Mr. Crow" />
-                <span id="guru" class="title sa-light-blue text-shadow-sunset">み</span>
+                <span id="guru" class="sa-light-blue text-shadow-sunset">み</span>
             </div>
         </div>
     </div>
@@ -60,10 +60,10 @@
                     <a class="nav-link" href="#past">パスト</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#1st">一周年</a>
+                    <a class="nav-link" href="#voice">音声コレクション</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#voice">音声コレクション</a>
+                    <a class="nav-link" href="#afterword">後書き</a>
                 </li>
             </ul>
         </div>
@@ -100,7 +100,7 @@
             <div class="tachie-container">
                 <img id="tachie" src="./assets/img/tachie/tachie.webp" alt="Tachie" />
             </div>
-            <button type="button" class="btn" onclick="scrollDown()">
+            <button type="button" class="btn" title="Scroll to main content" onclick="scrollDown()">
                 <i id="scrollDownArrow" class="fa-solid fa-angles-down"></i>
             </button>
         </header>
@@ -428,37 +428,104 @@
                     </div>
 
                     <!-- # SP content -->
-                    <h3 class="title-sm">-Project: 心做し- の会</h3>
+                    <h3 class="title-sm mt-5">- Project: KNS - の会</h3>
                     <div class="card-list">
-                        <button type="button" class="card reveal fade-in-bottom" data-name="rinjin" onclick="playSound()">
+                        <button type="button" class="card reveal fade-in-bottom">
                             <img src="./assets/img/participants/rinjin.webp" alt="Rinjin's icon" />
                             <div class="card-content">
                                 <span class="title-sm">リンジン</span>
                                 <span>あおいちゃんデビュー 2 周年おめでとう、配信あんまりリアタイ出来ないけれど、歌枠よく聞いてるよ、社畜の心癒されて欲しかった、これからも宜しくね～</span>
                             </div>
                         </button>
-                        <button type="button" class="card reveal fade-in-bottom" data-name="mainotechi" onclick="playSound()">
+
+                        <button type="button" class="card reveal fade-in-bottom">
                             <img src="./assets/img/participants/mainotechi.webp" alt="Mainotechi's icon" />
                             <div class="card-content">
                                 <span class="title-sm">まいのてち</span>
                                 <span>あおいちゃん 2 周年おめでとうございます！あなたの歌声がたくさんの人を癒したよ！仕事でストレス溜まった時よくあなたのアーカイブを聞いて、精神を整えてる。これからもよろしくお願いします！</span>
                             </div>
                         </button>
-                        <button type="button" class="card reveal fade-in-bottom" data-name="EDDL" onclick="playSound()">
+
+                        <button type="button" class="card reveal fade-in-bottom">
                             <img src="./assets/img/participants/eddl.webp" alt="EDDL's icon" />
                             <div class="card-content">
                                 <span class="title-sm">EDDL</span>
                                 <span>あおちゃん、ニ周年おめでとう！あおちゃんを見るたびに心が癒されます。これからも応援していきます！</span>
                             </div>
                         </button>
-                        <button type="button" class="card reveal fade-in-bottom" data-name="ritmo" onclick="playSound()">
+
+                        <button type="button" class="card reveal fade-in-bottom">
+                            <img src="./assets/img/participants/fidel.webp" alt="Fidel's icon" />
+                            <div class="card-content">
+                                <span class="title-sm">菲德爾</span>
+                                <span>あおちゃん、二周年おめでとう！</span>
+                            </div>
+                        </button>
+
+                        <button type="button" class="card reveal fade-in-bottom">
+                            <img src="./assets/img/participants/iyashuki.webp" alt="Iyashuki's icon" />
+                            <div class="card-content">
+                                <span class="title-sm">イヤシュキ</span>
+                                <span>(同上)</span>
+                            </div>
+                        </button>
+
+                        <button type="button" class="card reveal fade-in-bottom">
                             <img src="./assets/img/participants/ritmo.webp" alt="Ritmo's icon" />
                             <div class="card-content">
                                 <span class="title-sm">リツモ</span>
-                                <span>あいうえお</span>
+                                <span>(後書き)</span>
                             </div>
                         </button>
                     </div>
+
+                    <!-- # Audio Message -->
+                    <div class="titles">
+                        <h3 class="title-sm mt-5">- Project: S -</h3>
+                        <span>ボタンを押してください</span>
+                    </div>
+                    <div class="button-list">
+                        <button id="a-barunikomiudon" type="button" class="btn btn-pill" onclick="playMsg(this.id)">
+                            <span>ばる煮込みうどん</span>
+                        </button>
+
+                        <button id="a-eddl" type="button" class="btn btn-pill" onclick="playMsg(this.id)">
+                            <span>EDDL</span>
+                        </button>
+
+                        <button id="a-iyashuki" type="button" class="btn btn-pill" onclick="playMsg(this.id)">
+                            <span>イヤシュキ</span>
+                        </button>
+
+                        <button id="a-kemi" type="button" class="btn btn-pill" onclick="playMsg(this.id)">
+                            <span>けみ</span>
+                        </button>
+                        
+                        <button id="a-kumanonakanohito" type="button" class="btn btn-pill" onclick="playMsg(this.id)">
+                            <span>熊の中の人</span>
+                        </button>
+
+                        <button id="a-okome" type="button" class="btn btn-pill" onclick="playMsg(this.id)">
+                            <span>お米</span>
+                        </button>
+
+                        <button id="a-rinjin" type="button" class="btn btn-pill" onclick="playMsg(this.id)">
+                            <span>リンジン</span>
+                        </button>
+
+                        <button id="a-noapyoi" type="button" class="btn btn-pill" onclick="playMsg(this.id)">
+                            <span>あおぐるみ N</span>
+                        </button>
+
+                        <button id="a-yujihi" type="button" class="btn btn-pill" onclick="playMsg(this.id)">
+                            <span>あおぐるみ Y</span>
+                        </button>
+                    </div>
+
+                    <!-- # 1st Anniversary -->
+                    <h3 class="title-sm mt-5">一周年</h3>
+                    <img src="./assets/img/1st/1.webp" alt="Messages from Aogurumi - 1st Anniversary (1)" />
+                    <img src="./assets/img/1st/2.webp" alt="Messages from Aogurumi - 1st Anniversary (2)" />
                 </section>
     
                 <section id="past">
@@ -495,14 +562,16 @@
                         </div>
                     </div>    
                 </section>
-                
-                <section id="1st">
-                    <h2 class="title">一周年</h2>
-                </section>
 
                 <section id="voice">
                     <h2 class="title">音声コレクション</h2>
                 </section>
+                
+                <section id="afterword">
+                    <h2 class="title">後書き</h2>
+                </section>
+
+                
             </div>
         </main>
 
