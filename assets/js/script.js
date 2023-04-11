@@ -262,7 +262,8 @@ function playMsg(elementId) {
 // * Close navbar menu ------------------------------------------------------------------
 const navLinks = document.querySelectorAll('.nav-item');
 const menuToggle = document.getElementById('navbarSupportedContent');
-if(window.matchMedia("(max-width: 576px)")) {
+// # Why did I forget that .matches at the end, dumbass
+if(window.matchMedia("(max-width: 576px)").matches) {
     const bsCollapse = new bootstrap.Collapse(menuToggle, {toggle: false});
     navLinks.forEach((index) => {
         index.addEventListener('click', () => { bsCollapse.toggle() });

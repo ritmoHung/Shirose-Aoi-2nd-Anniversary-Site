@@ -135,15 +135,15 @@ body {
 #guru {
     display: inline-block;
     position: absolute;
-    top: 51%;
+    top: 51.5%;
     left: 36%;
     z-index: 1;
     font-size: 2.5em;
     font-weight: 500;
     -webkit-transform-origin: center center;
             transform-origin: center center;
-    -webkit-animation: gurumi 1s linear infinite;
-	        animation: gurumi 1s linear infinite;
+    -webkit-animation: gurumi 1s linear infinite steps(12);
+            animation: gurumi 1s linear infinite;
 }
 @media screen and (max-width: 360px) {
     #guru {
