@@ -67,7 +67,7 @@
                 </li>
             </ul>
         </div>
-        <button type="button" class="btn navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button type="button" class="btn btn-os-light navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <i class="fa-solid fa-bars"></i>
         </button>
     </nav>
@@ -100,7 +100,7 @@
             <div class="tachie-container">
                 <img id="tachie" src="./assets/img/tachie/tachie.webp" alt="Tachie" />
             </div>
-            <button type="button" class="btn" title="Scroll to main content" onclick="scrollDown()">
+            <button type="button" class="btn btn-os-light" title="Scroll to main content" onclick="scrollDown()">
                 <i id="scrollDownArrow" class="fa-solid fa-angles-down"></i>
             </button>
         </header>
@@ -479,39 +479,47 @@
                         <span>ボタンを押してください</span>
                     </div>
                     <div class="button-list">
-                        <button id="a-barunikomiudon" type="button" class="btn btn-pill" onclick="playMsg(this.id)">
+                        <button id="a-barunikomiudon" type="button" class="btn btn-pill" onclick="playAudio(this.id, 'msg')">
                             <span>ばる煮込みうどん</span>
                         </button>
 
-                        <button id="a-eddl" type="button" class="btn btn-pill" onclick="playMsg(this.id)">
+                        <button id="a-eddl" type="button" class="btn btn-pill" onclick="playAudio(this.id, 'msg')">
                             <span>EDDL</span>
                         </button>
 
-                        <button id="a-iyashuki" type="button" class="btn btn-pill" onclick="playMsg(this.id)">
+                        <button id="a-iyashuki" type="button" class="btn btn-pill" onclick="playAudio(this.id, 'msg')">
                             <span>イヤシュキ</span>
                         </button>
 
-                        <button id="a-kemi" type="button" class="btn btn-pill" onclick="playMsg(this.id)">
+                        <button id="a-kemi" type="button" class="btn btn-pill" onclick="playAudio(this.id, 'msg')">
                             <span>けみ</span>
                         </button>
                         
-                        <button id="a-kumanonakanohito" type="button" class="btn btn-pill" onclick="playMsg(this.id)">
+                        <button id="a-kumanonakanohito" type="button" class="btn btn-pill" onclick="playAudio(this.id, 'msg')">
                             <span>熊の中の人</span>
                         </button>
 
-                        <button id="a-okome" type="button" class="btn btn-pill" onclick="playMsg(this.id)">
+                        <button id="a-okome" type="button" class="btn btn-pill" onclick="playAudio(this.id, 'msg')">
                             <span>お米</span>
                         </button>
 
-                        <button id="a-rinjin" type="button" class="btn btn-pill" onclick="playMsg(this.id)">
+                        <button id="a-rinjin" type="button" class="btn btn-pill" onclick="playAudio(this.id, 'msg')">
                             <span>リンジン</span>
                         </button>
 
-                        <button id="a-noapyoi" type="button" class="btn btn-pill" onclick="playMsg(this.id)">
+                        <button id="a-mark" type="button" class="btn btn-pill" onclick="playAudio(this.id, 'msg')">
+                            <span>マーク</span>
+                        </button>
+
+                        <button id="a-azunyan" type="button" class="btn btn-pill" onclick="playAudio(this.id, 'msg')">
+                            <span>あずにゃん</span>
+                        </button>
+
+                        <button id="a-noapyoi" type="button" class="btn btn-pill" onclick="playAudio(this.id, 'msg')">
                             <span>あおぐるみ N</span>
                         </button>
 
-                        <button id="a-yujihi" type="button" class="btn btn-pill" onclick="playMsg(this.id)">
+                        <button id="a-yujihi" type="button" class="btn btn-pill" onclick="playAudio(this.id, 'msg')">
                             <span>あおぐるみ Y</span>
                         </button>
                     </div>
@@ -567,6 +575,23 @@
 
                 <section id="voice">
                     <h2 class="title">音声コレクション</h2>
+					<div class="collapse-list">
+                        <a class="collapse-content">
+                            <div class="collapse-content-static">
+                                <button id="a-ottankai" type="button" class="btn btn-os-dark" onclick="playAudio(this.id, 'aoi')">
+                                    <i class="fa-solid fa-headphones-simple"></i>
+                                    <span class="subtitle">おったんかーい</span>
+                                </button>
+                                <button id="l-ottankai" class="btn btn-os-dark px-3 py-2" data-bs-toggle="collapse" data-bs-target="#ottankaiDesc" role="button" aria-expanded="false" aria-controls="ottankaiDesc" onclick="caretRotate(this.id)">
+                                    <i class="fa-solid fa-caret-left"></i>
+                                </button>
+                            </div>
+                            <div class="collapse multi-collapse collapse-content-dynamic" id="ottankaiDesc">
+                                <iframe width="640" height="360" src="https://live.nicovideo.jp/embed/lv337612447" frameborder="0" scrolling="no" title="〖 ニコ生ゲーム / 白瀬あおい 〗初見さん大歓迎！再びリスナーと協力・対決♪〖 VTuberのあそびばチャレンジオーディション６日目 〗" style="border:solid 1px #d0d0d0; background-color: #f6f6f6;" loading="lazy"></iframe>
+                                <p>後書き 後書き 後書き 後書き 後書き 後書き</p>
+                            </div>
+                        </a>
+                    </div>
                 </section>
                 
                 <section id="afterword">

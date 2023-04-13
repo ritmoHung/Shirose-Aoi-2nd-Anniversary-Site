@@ -206,6 +206,21 @@ window.addEventListener('scroll', scrollDownArrowVis);
 
 
 
+// * Arrow: Scroll Down Indicator -------------------------------------------------------
+const caretRotate = (elementId) => {
+    var toggle = document.getElementById(elementId);
+    var caret = toggle.querySelector(":scope > i");
+    console.log(caret);
+    if(toggle.getAttribute('aria-expanded') === "true") {
+        caret.style.transform = "rotate(-90deg)";
+    }
+    else {
+        caret.style.transform = "initial";
+    }
+}
+
+
+
 // * Element reveal animation -----------------------------------------------------------
 // ! Add to eventListner when permission button pressed instead of onload
 function reveal() {
@@ -244,14 +259,14 @@ const muteToggle = () => {
 
 // * Play sound -------------------------------------------------------------------------
 let audio;
-function playMsg(elementId) {
+function playAudio(elementId, method) {
     // # Pause previous audio
     if(audio && !audio.paused) audio.pause();
 
     // Path to new audio by element ID
-    var path = "./assets/audio/msg/";
+    var path = "./assets/audio/";
     var name = String(elementId).replace('a-', '');
-    audio = new Audio(path.concat(name, ".mp3"));
+    audio = new Audio(path.concat(method, "/", name, ".mp3"));
 
     audio.currentTime = 0;
     audio.play();
