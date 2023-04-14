@@ -568,7 +568,7 @@ i {
         height: 100%;
         width: auto;
     }
-    .card-content {
+    .card .card-content {
         overflow-x: hidden;
         overflow-y: scroll;
         height: 100%;
@@ -612,6 +612,7 @@ i {
     row-gap: var(--gap-2);
     column-gap: var(--gap-4);
     align-items: center;
+    align-content: center;
 }
 
 .collapse-list {
@@ -676,7 +677,7 @@ i {
     place-self: start;
 }
 
-@media screen and (min-width: 576px) {
+@media screen and (min-width: 768px) {
     .video-container:nth-child(even) {
         flex-direction: row;
     }
@@ -687,9 +688,10 @@ i {
         max-width: 40%;
     }
 }
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 768px) {
     .video-container {
         align-items: start;
+        justify-content: stretch;
     }
     .collapse-content-dynamic iframe {
         width: 100%;
