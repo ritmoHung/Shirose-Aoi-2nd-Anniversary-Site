@@ -53,6 +53,11 @@ body {
     background: var(--color-light-blue);
     scroll-behavior: smooth;
 }
+@media screen and (min-width: 1200px) {
+    body {
+        font-size: 1.1rem;
+    }
+}
 @media screen and (max-width: 480px) {
     body {
         font-size: 0.9rem;
@@ -138,7 +143,7 @@ body {
     top: 51.5%;
     left: 36%;
     z-index: 1;
-    font-size: 2.5em;
+    font-size: 2.5rem;
     font-weight: 500;
     -webkit-transform-origin: center center;
             transform-origin: center center;
@@ -533,6 +538,12 @@ i {
 .card-content :first-child {
     text-align: center;
 }
+.card-content a {
+    position: relative;
+    color: var(--highlight-color);
+    text-decoration: none;
+    transition: all ease-in-out var(--trans-duration);
+}
 
 @media screen and (max-width: 768px) {
     .card-list {
@@ -642,7 +653,6 @@ i {
     
 }
 .collapse-content-static i {
-    
     transition: transform var(--trans-duration);
 }
 
@@ -651,11 +661,19 @@ i {
     padding-top: var(--gap-3);
     display: grid;
     place-items: center; 
-    place-content: center;
+    justify-content: stretch;
     row-gap: var(--gap-3);
 
     color: var(--card-text-color);
     text-align: justify;
+}
+.collapse-content-dynamic iframe {
+    width: min(560px, 75%);
+}
+.collapse-content-dynamic span {
+    margin-left: 2ch;
+    margin-right: 2ch;
+    place-self: start;
 }
 
 @media screen and (min-width: 576px) {
@@ -667,6 +685,14 @@ i {
     }
     .video-container .card-content {
         max-width: 40%;
+    }
+}
+@media screen and (max-width: 576px) {
+    .video-container {
+        align-items: start;
+    }
+    .collapse-content-dynamic iframe {
+        width: 100%;
     }
 }
 
@@ -801,6 +827,10 @@ a:focus-visible, .card:focus-visible, .btn:focus-visible {
 .subtitle {
     font-weight: 500;
     font-size: 1.2rem;
+}
+
+.text-line-through {
+    text-decoration: line-through;
 }
 
 @media screen and (max-width: 992px) {
