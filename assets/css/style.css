@@ -526,7 +526,6 @@ i {
 }
 .card-content {
     margin: var(--gap-2);
-    padding-bottom: var(--gap-2);
     display: grid;
     place-items: center; 
     place-content: start;
@@ -534,6 +533,9 @@ i {
 
     color: var(--card-text-color);
     text-align: justify;
+}
+.card .card-content {
+    padding-bottom: var(--gap-2);
 }
 .card-content :first-child {
     text-align: center;
@@ -625,7 +627,7 @@ i {
     --collapse-radius: 1.5rem;
     --collapse-border: 0.5rem;
 
-    min-width: 300px;
+    min-width: 250px;
     width: 100%;
     padding: var(--gap-3);
     display: flex;
@@ -651,7 +653,9 @@ i {
     column-gap: var(--gap-2);
 
     color: var(--card-text-color);
-    
+}
+.collapse-content-static span {
+    text-align: left;
 }
 .collapse-content-static i {
     transition: transform var(--trans-duration);
@@ -672,8 +676,6 @@ i {
     width: min(560px, 75%);
 }
 .collapse-content-dynamic span {
-    margin-left: 2ch;
-    margin-right: 2ch;
     place-self: start;
 }
 
@@ -686,6 +688,10 @@ i {
     }
     .video-container .card-content {
         max-width: 40%;
+    }
+    .collapse-content-dynamic span {
+        margin-left: 2ch;
+        margin-right: 2ch;
     }
 }
 @media screen and (max-width: 768px) {
@@ -729,7 +735,7 @@ i {
     padding-left: var(--gap-3);
     padding-right: var(--gap-3);
 
-    color: var(--color-deep-blue);
+    color: var(--color-deep-blue) !important;
     fill: var(--color-deep-blue);
     font-weight: 400;
     background: var(--text-color) !important;
@@ -778,6 +784,8 @@ i {
     fill: var(--color-light-blue);
 }
 .btn-fab:active {
+    color: var(--highlight-color) !important;
+    fill: var(--highlight-color) !important;
     transform: scale(90%);
 }
 
