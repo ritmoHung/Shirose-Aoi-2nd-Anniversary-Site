@@ -591,26 +591,45 @@
                 </section>
 
                 <!-- # Voice -->
+                <!-- ! Remove iframes due to slow loading (too many iframes) -->
                 <section id="voice">
                     <h2 class="title">音声コレクション</h2>
 					<div class="collapse-list">
-                        <a class="collapse-content">
+                        <div class="collapse-content">
+                            <div class="collapse-content-static">
+                                <button id="a-3q" type="button" class="btn btn-os-dark" onclick="playAudio(this.id, 'aoi')">
+                                    <i class="fa-solid fa-headphones-simple"></i>
+                                    <span class="subtitle">Thank you! ありがとう～</span>
+                                </button>
+                                <button id="l-3q" class="btn btn-os-dark px-3 py-2" data-bs-toggle="collapse" data-bs-target="#3qDesc" role="button" aria-expanded="false" aria-controls="3qDesc" onclick="caretRotate(this.id)">
+                                    <i class="fa-solid fa-caret-left"></i>
+                                </button>
+                            </div>
+                            <div class="collapse multi-collapse collapse-content-dynamic" id="3qDesc">
+                                <a href="https://youtu.be/xn3Wn5b9bTc&t=1h24m39s" target="_blank" rel="noreferrer noopener">
+                                    <i class="fa-brands fa-youtube me-1"></i>〖 #歌枠 / singing 〗初見さん大歓迎🌟お歌の練習する♬〖 白瀬あおい / Vtuber 〗
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="collapse-content">
                             <div class="collapse-content-static">
                                 <button id="a-akachanaoi" type="button" class="btn btn-os-dark" onclick="playAudio(this.id, 'aoi')">
                                     <i class="fa-solid fa-headphones-simple"></i>
-                                    <span class="subtitle">A(あ) K(お) A(い)ちゃん</span>
+                                    <span class="subtitle">あ(A) お(K) い(A)ちゃん</span>
                                 </button>
                                 <button id="l-akachanaoi" class="btn btn-os-dark px-3 py-2" data-bs-toggle="collapse" data-bs-target="#akachanaoiDesc" role="button" aria-expanded="false" aria-controls="akachanaoiDesc" onclick="caretRotate(this.id)">
                                     <i class="fa-solid fa-caret-left"></i>
                                 </button>
                             </div>
                             <div class="collapse multi-collapse collapse-content-dynamic" id="akachanaoiDesc">
-                                <iframe width="640" height="360" src="https://www.youtube-nocookie.com/embed/TB3MnF3xD9o?start=2727" frameborder="0" allowfullscreen="1" title="【歌枠】１時間歌枠♪初見さんも好きになる声☆【Vtuber/白瀬あおい】" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
-                                
+                                <a href="https://youtu.be/ofj1CehRWas&t=1h14m26s" target="_blank" rel="noreferrer noopener">
+                                    <i class="fa-brands fa-youtube me-1"></i>【みんなで空気読み。２】しろくまは空気が読めるのか...！？【新人Vtuber/白瀬あおい】
+                                </a>
                             </div>
-                        </a>
+                        </div>
 
-                        <a class="collapse-content">
+                        <div class="collapse-content">
                             <div class="collapse-content-static">
                                 <button id="a-ayadagomen" type="button" class="btn btn-os-dark" onclick="playAudio(this.id, 'aoi')">
                                     <i class="fa-solid fa-headphones-simple"></i>
@@ -621,12 +640,30 @@
                                 </button>
                             </div>
                             <div class="collapse multi-collapse collapse-content-dynamic" id="ayadagomenDesc">
-                                <iframe width="640" height="360" src="https://www.youtube-nocookie.com/embed/TB3MnF3xD9o?start=2727" frameborder="0" allowfullscreen="1" title="【歌枠】１時間歌枠♪初見さんも好きになる声☆【Vtuber/白瀬あおい】" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
-                                
+                                <a href="https://youtu.be/K_IH62voBVE&t=1h04m37s" target="_blank" rel="noreferrer noopener">
+                                    <i class="fa-brands fa-youtube me-1"></i>【Minecraft】はじめてのゲーム配信！【新人Vtuber/白瀬あおい】
+                                </a>
                             </div>
-                        </a>
+                        </div>
 
-                        <a class="collapse-content">
+                        <div class="collapse-content">
+                            <div class="collapse-content-static">
+                                <button id="a-bakanande" type="button" class="btn btn-os-dark" onclick="playAudio(this.id, 'aoi')">
+                                    <i class="fa-solid fa-headphones-simple"></i>
+                                    <span class="subtitle">バカ...なんで...どうして...</span>
+                                </button>
+                                <button id="l-bakanande" class="btn btn-os-dark px-3 py-2" data-bs-toggle="collapse" data-bs-target="#bakanandeDesc" role="button" aria-expanded="false" aria-controls="bakanandeDesc" onclick="caretRotate(this.id)">
+                                    <i class="fa-solid fa-caret-left"></i>
+                                </button>
+                            </div>
+                            <div class="collapse multi-collapse collapse-content-dynamic" id="bakanandeDesc">
+                                <a href="https://youtu.be/PjcSA0_fVDk&t=3h49m09s" target="_blank" rel="noreferrer noopener">
+                                    <i class="fa-brands fa-youtube me-1"></i>〖 朝活雑談 〗8/31☆朝くま☀初見さん大歓迎！おしゃべりしながら洗浄ゲームする💙〖 白瀬あおい / プロプロ 〗
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="collapse-content">
                             <div class="collapse-content-static">
                                 <button id="a-bon" type="button" class="btn btn-os-dark" onclick="playAudio(this.id, 'aoi')">
                                     <i class="fa-solid fa-headphones-simple"></i>
@@ -637,12 +674,13 @@
                                 </button>
                             </div>
                             <div class="collapse multi-collapse collapse-content-dynamic" id="bonDesc">
-                                <iframe width="640" height="360" src="https://www.youtube-nocookie.com/embed/TB3MnF3xD9o?start=2727" frameborder="0" allowfullscreen="1" title="【歌枠】１時間歌枠♪初見さんも好きになる声☆【Vtuber/白瀬あおい】" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
-                                
+                                <a href="https://youtu.be/JYxkRN9oN8s&t=1h59m55s" target="_blank" rel="noreferrer noopener">
+                                    <i class="fa-brands fa-youtube me-1"></i>〖 歌枠 / singing 〗初見さん大歓迎！週末の夕方にまったり歌うよ♪〖 白瀬あおい / プロプロ 〗
+                                </a>
                             </div>
-                        </a>
+                        </div>
 
-                        <a class="collapse-content">
+                        <div class="collapse-content">
                             <div class="collapse-content-static">
                                 <button id="a-doemu" type="button" class="btn btn-os-dark" onclick="playAudio(this.id, 'aoi')">
                                     <i class="fa-solid fa-headphones-simple"></i>
@@ -653,12 +691,47 @@
                                 </button>
                             </div>
                             <div class="collapse multi-collapse collapse-content-dynamic" id="doemuDesc">
-                                <iframe width="640" height="360" src="https://www.youtube-nocookie.com/embed/TB3MnF3xD9o?start=2727" frameborder="0" allowfullscreen="1" title="【歌枠】１時間歌枠♪初見さんも好きになる声☆【Vtuber/白瀬あおい】" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
-                                
+                                <a href="https://youtu.be/ja8gstNl-ls&t=1h09m45s" target="_blank" rel="noreferrer noopener">
+                                    <i class="fa-brands fa-youtube me-1"></i>【晩酌雑談】デビュー１１ヶ月記念♡ましゅまろ読みながらおしゃべりする！【Vtuber/白瀬あおい】
+                                </a>
                             </div>
-                        </a>
+                        </div>
 
-                        <a class="collapse-content">
+                        <div class="collapse-content">
+                            <div class="collapse-content-static">
+                                <button id="a-fight" type="button" class="btn btn-os-dark" onclick="playAudio(this.id, 'aoi')">
+                                    <i class="fa-solid fa-headphones-simple"></i>
+                                    <span class="subtitle">Fight!</span>
+                                </button>
+                                <button id="l-fight" class="btn btn-os-dark px-3 py-2" data-bs-toggle="collapse" data-bs-target="#fightDesc" role="button" aria-expanded="false" aria-controls="fightDesc" onclick="caretRotate(this.id)">
+                                    <i class="fa-solid fa-caret-left"></i>
+                                </button>
+                            </div>
+                            <div class="collapse multi-collapse collapse-content-dynamic" id="fightDesc">
+                                <a href="https://youtu.be/NVUIHK-DY9o&t=1h38m11s" target="_blank" rel="noreferrer noopener">
+                                    <i class="fa-brands fa-youtube me-1"></i>〖 #朝くま☀ 〗初見さん大歓迎🌟水曜の朝、BGMにぴったりの雑談💙〖 #白瀬あおい / Vtuber 〗
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="collapse-content">
+                            <div class="collapse-content-static">
+                                <button id="a-ippainetene" type="button" class="btn btn-os-dark" onclick="playAudio(this.id, 'aoi')">
+                                    <i class="fa-solid fa-headphones-simple"></i>
+                                    <span class="subtitle">（大声）いっぱい寝てね！</span>
+                                </button>
+                                <button id="l-ippainetene" class="btn btn-os-dark px-3 py-2" data-bs-toggle="collapse" data-bs-target="#ippaineteneDesc" role="button" aria-expanded="false" aria-controls="ippaineteneDesc" onclick="caretRotate(this.id)">
+                                    <i class="fa-solid fa-caret-left"></i>
+                                </button>
+                            </div>
+                            <div class="collapse multi-collapse collapse-content-dynamic" id="ippaineteneDesc">
+                                <a href="https://youtu.be/xn3Wn5b9bTc&t=21m39s" target="_blank" rel="noreferrer noopener">
+                                    <i class="fa-brands fa-youtube me-1"></i>〖 #歌枠 / singing 〗初見さん大歓迎🌟お歌の練習する♬〖 白瀬あおい / Vtuber 〗
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="collapse-content">
                             <div class="collapse-content-static">
                                 <button id="a-iya-betsuni" type="button" class="btn btn-os-dark" onclick="playAudio(this.id, 'aoi')">
                                     <i class="fa-solid fa-headphones-simple"></i>
@@ -669,12 +742,13 @@
                                 </button>
                             </div>
                             <div class="collapse multi-collapse collapse-content-dynamic" id="iya-betsuniDesc">
-                                <iframe width="640" height="360" src="https://www.youtube-nocookie.com/embed/TB3MnF3xD9o?start=2727" frameborder="0" allowfullscreen="1" title="【歌枠】１時間歌枠♪初見さんも好きになる声☆【Vtuber/白瀬あおい】" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
-                                
+                                <a href="https://youtu.be/ja8gstNl-ls&t=1h57m09s" target="_blank" rel="noreferrer noopener">
+                                    <i class="fa-brands fa-youtube me-1"></i>【晩酌雑談】デビュー１１ヶ月記念♡ましゅまろ読みながらおしゃべりする！【Vtuber/白瀬あおい】
+                                </a>
                             </div>
-                        </a>
+                        </div>
 
-                        <a class="collapse-content">
+                        <div class="collapse-content">
                             <div class="collapse-content-static">
                                 <button id="a-jiamairanai" type="button" class="btn btn-os-dark" onclick="playAudio(this.id, 'aoi')">
                                     <i class="fa-solid fa-headphones-simple"></i>
@@ -685,12 +759,11 @@
                                 </button>
                             </div>
                             <div class="collapse multi-collapse collapse-content-dynamic" id="jiamairanaiDesc">
-                                <iframe width="640" height="360" src="https://www.youtube-nocookie.com/embed/TB3MnF3xD9o?start=2727" frameborder="0" allowfullscreen="1" title="【歌枠】１時間歌枠♪初見さんも好きになる声☆【Vtuber/白瀬あおい】" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
-                                
+                                Source lost :(
                             </div>
-                        </a>
+                        </div>
 
-                        <a class="collapse-content">
+                        <div class="collapse-content">
                             <div class="collapse-content-static">
                                 <button id="a-mizuiro-shiropantsu" type="button" class="btn btn-os-dark" onclick="playAudio(this.id, 'aoi')">
                                     <i class="fa-solid fa-headphones-simple"></i>
@@ -701,28 +774,47 @@
                                 </button>
                             </div>
                             <div class="collapse multi-collapse collapse-content-dynamic" id="mizuiro-shiropantsuDesc">
-                                <iframe width="640" height="360" src="https://www.youtube-nocookie.com/embed/TB3MnF3xD9o?start=2727" frameborder="0" allowfullscreen="1" title="【歌枠】１時間歌枠♪初見さんも好きになる声☆【Vtuber/白瀬あおい】" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
-                                
+                                <a href="https://youtu.be/ZvEuohZt0NY&t=56m23s" target="_blank" rel="noreferrer noopener">
+                                    <i class="fa-brands fa-youtube me-1"></i>【unpacking】荷解き？０型の収納力を見せてやる！！！【Vtuber/白瀬あおい】
+                                </a>
                             </div>
-                        </a>
+                        </div>
 
-                        <a class="collapse-content">
+                        <div class="collapse-content">
+                            <div class="collapse-content-static">
+                                <button id="a-nandedayo" type="button" class="btn btn-os-dark" onclick="playAudio(this.id, 'aoi')">
+                                    <i class="fa-solid fa-headphones-simple"></i>
+                                    <span class="subtitle">なんでだよ！ふざけんな！</span>
+                                </button>
+                                <button id="l-nandedayo" class="btn btn-os-dark px-3 py-2" data-bs-toggle="collapse" data-bs-target="#nandedayoDesc" role="button" aria-expanded="false" aria-controls="nandedayoDesc" onclick="caretRotate(this.id)">
+                                    <i class="fa-solid fa-caret-left"></i>
+                                </button>
+                            </div>
+                            <div class="collapse multi-collapse collapse-content-dynamic" id="nandedayoDesc">
+                                <a href="https://youtu.be/6FhfG-MdOzQ&t=2h07m15s" target="_blank" rel="noreferrer noopener">
+                                    <i class="fa-brands fa-youtube me-1"></i>〖 #朝くま☀ 〗初見さん大歓迎🌟水曜の朝、BGMにぴったりの雑談💙〖 #白瀬あおい / Vtuber 〗
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="collapse-content">
                             <div class="collapse-content-static">
                                 <button id="a-nangaecchidana" type="button" class="btn btn-os-dark" onclick="playAudio(this.id, 'aoi')">
                                     <i class="fa-solid fa-headphones-simple"></i>
-                                    <span class="subtitle">何がエッチだな</span>
+                                    <span class="subtitle">なんかエッチだな</span>
                                 </button>
                                 <button id="l-nangaecchidana" class="btn btn-os-dark px-3 py-2" data-bs-toggle="collapse" data-bs-target="#nangaecchidanaDesc" role="button" aria-expanded="false" aria-controls="nangaecchidanaDesc" onclick="caretRotate(this.id)">
                                     <i class="fa-solid fa-caret-left"></i>
                                 </button>
                             </div>
                             <div class="collapse multi-collapse collapse-content-dynamic" id="nangaecchidanaDesc">
-                                <iframe width="640" height="360" src="https://www.youtube-nocookie.com/embed/TB3MnF3xD9o?start=2727" frameborder="0" allowfullscreen="1" title="【歌枠】１時間歌枠♪初見さんも好きになる声☆【Vtuber/白瀬あおい】" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
-                                
+                                <a href="https://youtu.be/ja8gstNl-ls&t=2h21m18s" target="_blank" rel="noreferrer noopener">
+                                    <i class="fa-brands fa-youtube me-1"></i>【晩酌雑談】デビュー１１ヶ月記念♡ましゅまろ読みながらおしゃべりする！【Vtuber/白瀬あおい】
+                                </a>
                             </div>
-                        </a>
+                        </div>
 
-                        <a class="collapse-content">
+                        <div class="collapse-content">
                             <div class="collapse-content-static">
                                 <button id="a-niisan" type="button" class="btn btn-os-dark" onclick="playAudio(this.id, 'aoi')">
                                     <i class="fa-solid fa-headphones-simple"></i>
@@ -733,12 +825,30 @@
                                 </button>
                             </div>
                             <div class="collapse multi-collapse collapse-content-dynamic" id="niisanDesc">
-                                <iframe width="640" height="360" src="https://www.youtube-nocookie.com/embed/TB3MnF3xD9o?start=2727" frameborder="0" allowfullscreen="1" title="【歌枠】１時間歌枠♪初見さんも好きになる声☆【Vtuber/白瀬あおい】" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
-                                
+                                <a href="https://youtu.be/ja8gstNl-ls&t=1h07m03s" target="_blank" rel="noreferrer noopener">
+                                    <i class="fa-brands fa-youtube me-1"></i>【晩酌雑談】デビュー１１ヶ月記念♡ましゅまろ読みながらおしゃべりする！【Vtuber/白瀬あおい】
+                                </a>
                             </div>
-                        </a>
+                        </div>
 
-                        <a class="collapse-content">
+                        <div class="collapse-content">
+                            <div class="collapse-content-static">
+                                <button id="a-nyani" type="button" class="btn btn-os-dark" onclick="playAudio(this.id, 'aoi')">
+                                    <i class="fa-solid fa-headphones-simple"></i>
+                                    <span class="subtitle">にゃに？</span>
+                                </button>
+                                <button id="l-nyani" class="btn btn-os-dark px-3 py-2" data-bs-toggle="collapse" data-bs-target="#nyaniDesc" role="button" aria-expanded="false" aria-controls="nyaniDesc" onclick="caretRotate(this.id)">
+                                    <i class="fa-solid fa-caret-left"></i>
+                                </button>
+                            </div>
+                            <div class="collapse multi-collapse collapse-content-dynamic" id="nyaniDesc">
+                                <a href="https://youtu.be/TGW_gdxUSZA&t=1h01m06s" target="_blank" rel="noreferrer noopener">
+                                    <i class="fa-brands fa-youtube me-1"></i>〖 #朝くま☀ 〗初見さん大歓迎🌟うれしいお知らせあり！水曜の朝、BGMにぴったりの雑談💙〖 #白瀬あおい / Vtuber 〗
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="collapse-content">
                             <div class="collapse-content-static">
                                 <button id="a-okiro" type="button" class="btn btn-os-dark" onclick="playAudio(this.id, 'aoi')">
                                     <i class="fa-solid fa-headphones-simple"></i>
@@ -749,12 +859,13 @@
                                 </button>
                             </div>
                             <div class="collapse multi-collapse collapse-content-dynamic" id="okiroDesc">
-                                <iframe width="640" height="360" src="https://www.youtube-nocookie.com/embed/TB3MnF3xD9o?start=2727" frameborder="0" allowfullscreen="1" title="【歌枠】１時間歌枠♪初見さんも好きになる声☆【Vtuber/白瀬あおい】" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
-                                
+                                <a href="https://youtu.be/PpLaeRuaDPY&t=3h53m47s" target="_blank" rel="noreferrer noopener">
+                                    <i class="fa-brands fa-youtube me-1"></i>〖 朝活雑談 〗5/4☆今年初の朝くま☀初見さん大歓迎！GWもおしゃべりしよ♡〖 白瀬あおい/プロプロ 〗
+                                </a>
                             </div>
-                        </a>
+                        </div>
 
-                        <a class="collapse-content">
+                        <div class="collapse-content">
                             <div class="collapse-content-static">
                                 <button id="a-otsukumaN" type="button" class="btn btn-os-dark" onclick="playAudio(this.id, 'aoi')">
                                     <i class="fa-solid fa-headphones-simple"></i>
@@ -765,28 +876,48 @@
                                 </button>
                             </div>
                             <div class="collapse multi-collapse collapse-content-dynamic" id="otsukumaNDesc">
-                                <iframe width="640" height="360" src="https://www.youtube-nocookie.com/embed/TB3MnF3xD9o?start=2727" frameborder="0" allowfullscreen="1" title="【歌枠】１時間歌枠♪初見さんも好きになる声☆【Vtuber/白瀬あおい】" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
-                                
+                                <a href="https://youtu.be/uBulRsxbJ6Q&t=2h17m31s" target="_blank" rel="noreferrer noopener">
+                                    <i class="fa-brands fa-youtube me-1"></i>【歌枠】はじめてのお歌、きいてくれますか？【新人Vtuber/白瀬あおい】
+                                </a>
                             </div>
-                        </a>
+                        </div>
 
-                        <a class="collapse-content">
+                        <div class="collapse-content">
+                            <div class="collapse-content-static">
+                                <button id="a-sakana" type="button" class="btn btn-os-dark" onclick="playAudio(this.id, 'aoi')">
+                                    <i class="fa-solid fa-headphones-simple"></i>
+                                    <span class="subtitle">さかな〜 ちんあなご～</span>
+                                </button>
+                                <button id="l-sakana" class="btn btn-os-dark px-3 py-2" data-bs-toggle="collapse" data-bs-target="#sakanaDesc" role="button" aria-expanded="false" aria-controls="sakanaDesc" onclick="caretRotate(this.id)">
+                                    <i class="fa-solid fa-caret-left"></i>
+                                </button>
+                            </div>
+                            <div class="collapse multi-collapse collapse-content-dynamic" id="sakanaDesc">
+                                <a href="https://youtu.be/xn3Wn5b9bTc&t=55m33s" target="_blank" rel="noreferrer noopener">
+                                    <i class="fa-brands fa-youtube me-1"></i>〖 #歌枠 / singing 〗初見さん大歓迎🌟お歌の練習する♬〖 白瀬あおい / Vtuber 〗
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="collapse-content">
                             <div class="collapse-content-static">
                                 <button id="a-sharumuju" type="button" class="btn btn-os-dark" onclick="playAudio(this.id, 'aoi')">
                                     <i class="fa-solid fa-headphones-simple"></i>
-                                    <span class="subtitle">しゃるむじゅ</span>
+                                    <span class="subtitle">しゃるむちゅー</span>
                                 </button>
                                 <button id="l-sharumuju" class="btn btn-os-dark px-3 py-2" data-bs-toggle="collapse" data-bs-target="#sharumujuDesc" role="button" aria-expanded="false" aria-controls="sharumujuDesc" onclick="caretRotate(this.id)">
                                     <i class="fa-solid fa-caret-left"></i>
                                 </button>
                             </div>
                             <div class="collapse multi-collapse collapse-content-dynamic" id="sharumujuDesc">
-                                <iframe width="640" height="360" src="https://www.youtube-nocookie.com/embed/TB3MnF3xD9o?start=2727" frameborder="0" allowfullscreen="1" title="【歌枠】１時間歌枠♪初見さんも好きになる声☆【Vtuber/白瀬あおい】" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+                                <a href="https://youtu.be/K_IH62voBVE&t=55m38s" target="_blank" rel="noreferrer noopener">
+                                    <i class="fa-brands fa-youtube me-1"></i>【Minecraft】はじめてのゲーム配信！【新人Vtuber/白瀬あおい】
+                                </a>
                                 <span>😭</span>
                             </div>
-                        </a>
+                        </div>
 
-                        <a class="collapse-content">
+                        <div class="collapse-content">
                             <div class="collapse-content-static">
                                 <button id="a-ottankai" type="button" class="btn btn-os-dark" onclick="playAudio(this.id, 'aoi')">
                                     <i class="fa-solid fa-headphones-simple"></i>
@@ -798,11 +929,10 @@
                             </div>
                             <div class="collapse multi-collapse collapse-content-dynamic" id="ottankaiDesc">
                                 <iframe width="960" height="540" src="https://live.nicovideo.jp/embed/lv337612447" frameborder="0" scrolling="no" title="〖 ニコ生ゲーム / 白瀬あおい 〗初見さん大歓迎！再びリスナーと協力・対決♪〖 VTuberのあそびばチャレンジオーディション６日目 〗" style="border:solid 1px #d0d0d0; background-color: #f6f6f6;" loading="lazy"></iframe>
-                                
                             </div>
-                        </a>
+                        </div>
 
-                        <a class="collapse-content">
+                        <div class="collapse-content">
                             <div class="collapse-content-static">
                                 <button id="a-usotsuki3" type="button" class="btn btn-os-dark" onclick="playAudio(this.id, 'aoi')">
                                     <i class="fa-solid fa-headphones-simple"></i>
@@ -813,12 +943,13 @@
                                 </button>
                             </div>
                             <div class="collapse multi-collapse collapse-content-dynamic" id="usotsuki3Desc">
-                                <iframe width="640" height="360" src="https://www.youtube-nocookie.com/embed/TB3MnF3xD9o?start=2727" frameborder="0" allowfullscreen="1" title="【歌枠】１時間歌枠♪初見さんも好きになる声☆【Vtuber/白瀬あおい】" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
-                                
+                                <a href="https://youtu.be/TB3MnF3xD9o&t=45m26s" target="_blank" rel="noreferrer noopener">
+                                    <i class="fa-brands fa-youtube me-1"></i>【歌枠】１時間歌枠♪初見さんも好きになる声☆【Vtuber/白瀬あおい】
+                                </a>
                             </div>
-                        </a>
+                        </div>
 
-                        <a class="collapse-content">
+                        <div class="collapse-content">
                             <div class="collapse-content-static">
                                 <button id="a-yai" type="button" class="btn btn-os-dark" onclick="playAudio(this.id, 'aoi')">
                                     <i class="fa-solid fa-headphones-simple"></i>
@@ -829,12 +960,11 @@
                                 </button>
                             </div>
                             <div class="collapse multi-collapse collapse-content-dynamic" id="yaiDesc">
-                                <iframe width="640" height="360" src="https://www.youtube-nocookie.com/embed/TB3MnF3xD9o?start=2727" frameborder="0" allowfullscreen="1" title="【歌枠】１時間歌枠♪初見さんも好きになる声☆【Vtuber/白瀬あおい】" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
-                                
+                                Source lost :(
                             </div>
-                        </a>
+                        </div>
 
-                        <a class="collapse-content">
+                        <div class="collapse-content">
                             <div class="collapse-content-static">
                                 <button id="a-yeah" type="button" class="btn btn-os-dark" onclick="playAudio(this.id, 'aoi')">
                                     <i class="fa-solid fa-headphones-simple"></i>
@@ -845,12 +975,13 @@
                                 </button>
                             </div>
                             <div class="collapse multi-collapse collapse-content-dynamic" id="yeahDesc">
-                                <iframe width="640" height="360" src="https://www.youtube-nocookie.com/embed/TB3MnF3xD9o?start=2727" frameborder="0" allowfullscreen="1" title="【歌枠】１時間歌枠♪初見さんも好きになる声☆【Vtuber/白瀬あおい】" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
-                                
+                                <a href="https://youtu.be/ofj1CehRWas&t=50m56s" target="_blank" rel="noreferrer noopener">
+                                    <i class="fa-brands fa-youtube me-1"></i>【みんなで空気読み。２】しろくまは空気が読めるのか...！？【新人Vtuber/白瀬あおい】
+                                </a>
                             </div>
-                        </a>
+                        </div>
 
-                        <a class="collapse-content">
+                        <div class="collapse-content">
                             <div class="collapse-content-static">
                                 <button id="a-zatsudan" type="button" class="btn btn-os-dark" onclick="playAudio(this.id, 'aoi')">
                                     <i class="fa-solid fa-headphones-simple"></i>
@@ -861,15 +992,16 @@
                                 </button>
                             </div>
                             <div class="collapse multi-collapse collapse-content-dynamic" id="zatsudanDesc">
-                                <iframe width="640" height="360" src="https://www.youtube-nocookie.com/embed/TB3MnF3xD9o?start=2727" frameborder="0" allowfullscreen="1" title="【歌枠】１時間歌枠♪初見さんも好きになる声☆【Vtuber/白瀬あおい】" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
-                                
+                                <a href="https://youtu.be/TB3MnF3xD9o&t=1h07m24s" target="_blank" rel="noreferrer noopener">
+                                    <i class="fa-brands fa-youtube me-1"></i>【晩酌雑談】デビュー１１ヶ月記念♡ましゅまろ読みながらおしゃべりする！【Vtuber/白瀬あおい】
+                                </a>
                             </div>
-                        </a>
+                        </div>
                     </div>
 
                     <h3 class="title-sm mt-5">Short</h3>
                     <div class="collapse-list">
-                        <a class="collapse-content">
+                        <div class="collapse-content">
                             <div class="collapse-content-static">
                                 <button id="a-a" type="button" class="btn btn-os-dark" onclick="playAudio(this.id, 'aoi')">
                                     <i class="fa-solid fa-headphones-simple"></i>
@@ -880,12 +1012,13 @@
                                 </button>
                             </div>
                             <div class="collapse multi-collapse collapse-content-dynamic" id="aDesc">
-                                <iframe width="640" height="360" src="https://www.youtube-nocookie.com/embed/K_IH62voBVE?start=3736" frameborder="0" allowfullscreen="1" title="【Minecraft】はじめてのゲーム配信！【新人Vtuber/白瀬あおい】" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
-                                
+                                <a href="https://youtu.be/K_IH62voBVE&t=1h02m16s" target="_blank" rel="noreferrer noopener">
+                                    <i class="fa-brands fa-youtube me-1"></i>【Minecraft】はじめてのゲーム配信！【新人Vtuber/白瀬あおい】
+                                </a>
                             </div>
-                        </a>
+                        </div>
 
-                        <a class="collapse-content">
+                        <div class="collapse-content">
                             <div class="collapse-content-static">
                                 <button id="a-are" type="button" class="btn btn-os-dark" onclick="playAudio(this.id, 'aoi')">
                                     <i class="fa-solid fa-headphones-simple"></i>
@@ -896,12 +1029,13 @@
                                 </button>
                             </div>
                             <div class="collapse multi-collapse collapse-content-dynamic" id="areDesc">
-                                <iframe width="640" height="360" src="https://www.youtube-nocookie.com/embed/BKanjZOUCUc?start=5451" frameborder="0" allowfullscreen="1" title="【歌枠】１曲だけでも聴いてみて♪元気になれるお歌！【Vtuber/白瀬あおい】" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
-                                
+                                <a href="https://youtu.be/BKanjZOUCUc&t=1h30m51s" target="_blank" rel="noreferrer noopener">
+                                    <i class="fa-brands fa-youtube me-1"></i>【歌枠】１曲だけでも聴いてみて♪元気になれるお歌！【Vtuber/白瀬あおい】
+                                </a>
                             </div>
-                        </a>
+                        </div>
 
-                        <a class="collapse-content">
+                        <div class="collapse-content">
                             <div class="collapse-content-static">
                                 <button id="a-asadayo" type="button" class="btn btn-os-dark" onclick="playAudio(this.id, 'aoi')">
                                     <i class="fa-solid fa-headphones-simple"></i>
@@ -912,13 +1046,14 @@
                                 </button>
                             </div>
                             <div class="collapse multi-collapse collapse-content-dynamic" id="asadayoDesc">
-                                <iframe width="640" height="360" src="https://www.youtube-nocookie.com/embed/72ldim5WfRk?start=9273" frameborder="0" allowfullscreen="1" title="【くまのレストラン】くまとねこにどんな結末が待っているのか...！！【Vtuber/白瀬あおい】" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
-                                
+                                <a href="https://youtu.be/72ldim5WfRk&t=2h34m33s" target="_blank" rel="noreferrer noopener">
+                                    <i class="fa-brands fa-youtube me-1"></i>【くまのレストラン】くまとねこにどんな結末が待っているのか...！！【Vtuber/白瀬あおい】
+                                </a>
                             </div>
-                        </a>
+                        </div>
 
-                        <!-- ! Can't find timestamp -->
-                        <a class="collapse-content">
+                        <!-- ! Timestamp lost -->
+                        <div class="collapse-content">
                             <div class="collapse-content-static">
                                 <button id="a-asadayo-echo" type="button" class="btn btn-os-dark" onclick="playAudio(this.id, 'aoi')">
                                     <i class="fa-solid fa-headphones-simple"></i>
@@ -929,12 +1064,13 @@
                                 </button>
                             </div>
                             <div class="collapse multi-collapse collapse-content-dynamic" id="asadayo-echoDesc">
-                                <iframe width="640" height="360" src="https://www.youtube-nocookie.com/embed/72ldim5WfRk" frameborder="0" allowfullscreen="1" title="【くまのレストラン】くまとねこにどんな結末が待っているのか...！！【Vtuber/白瀬あおい】" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
-                                
+                                <a href="https://youtu.be/72ldim5WfRk&t=0s" target="_blank" rel="noreferrer noopener">
+                                    <i class="fa-brands fa-youtube me-1"></i>【くまのレストラン】くまとねこにどんな結末が待っているのか...！！【Vtuber/白瀬あおい】
+                                </a>
                             </div>
-                        </a>
+                        </div>
 
-                        <a class="collapse-content">
+                        <div class="collapse-content">
                             <div class="collapse-content-static">
                                 <button id="a-aya" type="button" class="btn btn-os-dark" onclick="playAudio(this.id, 'aoi')">
                                     <i class="fa-solid fa-headphones-simple"></i>
@@ -945,12 +1081,13 @@
                                 </button>
                             </div>
                             <div class="collapse multi-collapse collapse-content-dynamic" id="ayaDesc">
-                                <iframe width="640" height="360" src="https://www.youtube-nocookie.com/embed/ofj1CehRWas?start=1265" frameborder="0" allowfullscreen="1" title="【みんなで空気読み。２】しろくまは空気が読めるのか...！？【新人Vtuber/白瀬あおい】" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
-                                
+                                <a href="https://youtu.be/ofj1CehRWas&t=21m05s" target="_blank" rel="noreferrer noopener">
+                                    <i class="fa-brands fa-youtube me-1"></i>【みんなで空気読み。２】しろくまは空気が読めるのか...！？【新人Vtuber/白瀬あおい】
+                                </a>
                             </div>
-                        </a>
+                        </div>
 
-                        <a class="collapse-content">
+                        <div class="collapse-content">
                             <div class="collapse-content-static">
                                 <button id="a-binbon" type="button" class="btn btn-os-dark" onclick="playAudio(this.id, 'aoi')">
                                     <i class="fa-solid fa-headphones-simple"></i>
@@ -961,12 +1098,13 @@
                                 </button>
                             </div>
                             <div class="collapse multi-collapse collapse-content-dynamic" id="binbonDesc">
-                                <iframe width="640" height="360" src="https://www.youtube-nocookie.com/embed/ofj1CehRWas?start=735" frameborder="0" allowfullscreen="1" title="【みんなで空気読み。２】しろくまは空気が読めるのか...！？【新人Vtuber/白瀬あおい】" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
-                                
+                                <a href="https://youtu.be/ofj1CehRWas&t=12m15s" target="_blank" rel="noreferrer noopener">
+                                    <i class="fa-brands fa-youtube me-1"></i>【みんなで空気読み。２】しろくまは空気が読めるのか...！？【新人Vtuber/白瀬あおい】
+                                </a>
                             </div>
-                        </a>
+                        </div>
 
-                        <a class="collapse-content">
+                        <div class="collapse-content">
                             <div class="collapse-content-static">
                                 <button id="a-hoo" type="button" class="btn btn-os-dark" onclick="playAudio(this.id, 'aoi')">
                                     <i class="fa-solid fa-headphones-simple"></i>
@@ -977,28 +1115,30 @@
                                 </button>
                             </div>
                             <div class="collapse multi-collapse collapse-content-dynamic" id="hooDesc">
-                                <iframe width="640" height="360" src="https://www.youtube-nocookie.com/embed/ofj1CehRWas?start=2046" frameborder="0" allowfullscreen="1" title="【みんなで空気読み。２】しろくまは空気が読めるのか...！？【新人Vtuber/白瀬あおい】" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
-                                
+                                <a href="https://youtu.be/ofj1CehRWas&t=34m06s" target="_blank" rel="noreferrer noopener">
+                                    <i class="fa-brands fa-youtube me-1"></i>【みんなで空気読み。２】しろくまは空気が読めるのか...！？【新人Vtuber/白瀬あおい】
+                                </a>
                             </div>
-                        </a>
+                        </div>
 
-                        <a class="collapse-content">
+                        <div class="collapse-content">
                             <div class="collapse-content-static">
                                 <button id="a-laugh5" type="button" class="btn btn-os-dark" onclick="playAudio(this.id, 'aoi')">
                                     <i class="fa-solid fa-headphones-simple"></i>
-                                    <span class="subtitle">笑って</span>
+                                    <span class="subtitle">笑い声</span>
                                 </button>
                                 <button id="l-laugh5" class="btn btn-os-dark px-3 py-2" data-bs-toggle="collapse" data-bs-target="#laugh5Desc" role="button" aria-expanded="false" aria-controls="laugh5Desc" onclick="caretRotate(this.id)">
                                     <i class="fa-solid fa-caret-left"></i>
                                 </button>
                             </div>
                             <div class="collapse multi-collapse collapse-content-dynamic" id="laugh5Desc">
-                                <iframe width="640" height="360" src="https://www.youtube-nocookie.com/embed/ofj1CehRWas?start=2613" frameborder="0" allowfullscreen="1" title="【みんなで空気読み。２】しろくまは空気が読めるのか...！？【新人Vtuber/白瀬あおい】" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
-                                
+                                <a href="https://youtu.be/ofj1CehRWas&t=43m33s" target="_blank" rel="noreferrer noopener">
+                                    <i class="fa-brands fa-youtube me-1"></i>【みんなで空気読み。２】しろくまは空気が読めるのか...！？【新人Vtuber/白瀬あおい】
+                                </a>
                             </div>
-                        </a>
+                        </div>
 
-                        <a class="collapse-content">
+                        <div class="collapse-content">
                             <div class="collapse-content-static">
                                 <button id="a-papa2" type="button" class="btn btn-os-dark" onclick="playAudio(this.id, 'aoi')">
                                     <i class="fa-solid fa-headphones-simple"></i>
@@ -1009,12 +1149,13 @@
                                 </button>
                             </div>
                             <div class="collapse multi-collapse collapse-content-dynamic" id="papa2Desc">
-                                <iframe width="640" height="360" src="https://www.youtube-nocookie.com/embed/ja8gstNl-ls?start=12669" frameborder="0" allowfullscreen="1" title="【晩酌雑談】デビュー１１ヶ月記念♡ましゅまろ読みながらおしゃべりする！【Vtuber/白瀬あおい】" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
-                                
+                                <a href="https://youtu.be/ja8gstNl-ls&t=3h31m09s" target="_blank" rel="noreferrer noopener">
+                                    <i class="fa-brands fa-youtube me-1"></i>【晩酌雑談】デビュー１１ヶ月記念♡ましゅまろ読みながらおしゃべりする！【Vtuber/白瀬あおい】
+                                </a>
                             </div>
-                        </a>
+                        </div>
 
-                        <a class="collapse-content">
+                        <div class="collapse-content">
                             <div class="collapse-content-static">
                                 <button id="a-soredemoiindesuka" type="button" class="btn btn-os-dark" onclick="playAudio(this.id, 'aoi')">
                                     <i class="fa-solid fa-headphones-simple"></i>
@@ -1025,12 +1166,13 @@
                                 </button>
                             </div>
                             <div class="collapse multi-collapse collapse-content-dynamic" id="soredemoiindesukaDesc">
-                                <iframe width="640" height="360" src="https://www.youtube-nocookie.com/embed/uBulRsxbJ6Q?start=4115" frameborder="0" allowfullscreen="1" title="【歌枠】はじめてのお歌、きいてくれますか？【新人Vtuber/白瀬あおい】" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
-                                
+                                <a href="https://youtu.be/uBulRsxbJ6Q&t=1h08m35s" target="_blank" rel="noreferrer noopener">
+                                    <i class="fa-brands fa-youtube me-1"></i>【歌枠】はじめてのお歌、きいてくれますか？【新人Vtuber/白瀬あおい】
+                                </a>
                             </div>
-                        </a>
+                        </div>
 
-                        <a class="collapse-content">
+                        <div class="collapse-content">
                             <div class="collapse-content-static">
                                 <button id="a-thankyou3" type="button" class="btn btn-os-dark" onclick="playAudio(this.id, 'aoi')">
                                     <i class="fa-solid fa-headphones-simple"></i>
@@ -1041,12 +1183,13 @@
                                 </button>
                             </div>
                             <div class="collapse multi-collapse collapse-content-dynamic" id="thankyou3Desc">
-                                <iframe width="640" height="360" src="https://www.youtube-nocookie.com/embed/uBulRsxbJ6Q?start=3581" frameborder="0" allowfullscreen="1" title="【歌枠】はじめてのお歌、きいてくれますか？【新人Vtuber/白瀬あおい】" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
-                                
+                                <a href="https://youtu.be/uBulRsxbJ6Q&t=59m41s" target="_blank" rel="noreferrer noopener">
+                                    <i class="fa-brands fa-youtube me-1"></i>【歌枠】はじめてのお歌、きいてくれますか？【新人Vtuber/白瀬あおい】
+                                </a>
                             </div>
-                        </a>
+                        </div>
 
-                        <a class="collapse-content">
+                        <div class="collapse-content">
                             <div class="collapse-content-static">
                                 <button id="a-usotsuki" type="button" class="btn btn-os-dark" onclick="playAudio(this.id, 'aoi')">
                                     <i class="fa-solid fa-headphones-simple"></i>
@@ -1057,12 +1200,13 @@
                                 </button>
                             </div>
                             <div class="collapse multi-collapse collapse-content-dynamic" id="usotsukiDesc">
-                                <iframe width="640" height="360" src="https://www.youtube-nocookie.com/embed/ofj1CehRWas?start=1728" frameborder="0" allowfullscreen="1" title="【みんなで空気読み。２】しろくまは空気が読めるのか...！？【新人Vtuber/白瀬あおい】" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
-                                
+                                <a href="https://youtu.be/ofj1CehRWas&t=28m48s" target="_blank" rel="noreferrer noopener">
+                                    <i class="fa-brands fa-youtube me-1"></i>【みんなで空気読み。２】しろくまは空気が読めるのか...！？【新人Vtuber/白瀬あおい】
+                                </a>
                             </div>
-                        </a>
+                        </div>
 
-                        <a class="collapse-content">
+                        <div class="collapse-content">
                             <div class="collapse-content-static">
                                 <button id="a-wah" type="button" class="btn btn-os-dark" onclick="playAudio(this.id, 'aoi')">
                                     <i class="fa-solid fa-headphones-simple"></i>
@@ -1073,12 +1217,13 @@
                                 </button>
                             </div>
                             <div class="collapse multi-collapse collapse-content-dynamic" id="wahDesc">
-                                <iframe width="640" height="360" src="https://www.youtube-nocookie.com/embed/ofj1CehRWas?start=4791" frameborder="0" allowfullscreen="1" title="【みんなで空気読み。２】しろくまは空気が読めるのか...！？【新人Vtuber/白瀬あおい】" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
-                                
+                                <a href="https://youtu.be/ofj1CehRWas&t=1h19m51s" target="_blank" rel="noreferrer noopener">
+                                    <i class="fa-brands fa-youtube me-1"></i>【みんなで空気読み。２】しろくまは空気が読めるのか...！？【新人Vtuber/白瀬あおい】
+                                </a>
                             </div>
-                        </a>
+                        </div>
 
-                        <a class="collapse-content">
+                        <div class="collapse-content">
                             <div class="collapse-content-static">
                                 <button id="a-yamete" type="button" class="btn btn-os-dark" onclick="playAudio(this.id, 'aoi')">
                                     <i class="fa-solid fa-headphones-simple"></i>
@@ -1089,12 +1234,13 @@
                                 </button>
                             </div>
                             <div class="collapse multi-collapse collapse-content-dynamic" id="yameteDesc">
-                                <iframe width="640" height="360" src="https://www.youtube-nocookie.com/embed/ofj1CehRWas?start=1313" frameborder="0" allowfullscreen="1" title="【みんなで空気読み。２】しろくまは空気が読めるのか...！？【新人Vtuber/白瀬あおい】" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
-                                
+                                <a href="https://youtu.be/ofj1CehRWas&t=21m53s" target="_blank" rel="noreferrer noopener">
+                                    <i class="fa-brands fa-youtube me-1"></i>【みんなで空気読み。２】しろくまは空気が読めるのか...！？【新人Vtuber/白瀬あおい】
+                                </a>
                             </div>
-                        </a>
+                        </div>
 
-                        <a class="collapse-content">
+                        <div class="collapse-content">
                             <div class="collapse-content-static">
                                 <button id="a-yamete-xdd" type="button" class="btn btn-os-dark" onclick="playAudio(this.id, 'aoi')">
                                     <i class="fa-solid fa-headphones-simple"></i>
@@ -1105,12 +1251,13 @@
                                 </button>
                             </div>
                             <div class="collapse multi-collapse collapse-content-dynamic" id="yamete-xddDesc">
-                                <iframe width="640" height="360" src="https://www.youtube-nocookie.com/embed/ZvEuohZt0NY?start=28084" frameborder="0" allowfullscreen="1" title="【unpacking】荷解き？０型の収納力を見せてやる！！！【Vtuber/白瀬あおい】" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
-                                
+                                <a href="https://youtu.be/ZvEuohZt0NY&t=7h48m04s" target="_blank" rel="noreferrer noopener">
+                                    <i class="fa-brands fa-youtube me-1"></i>【unpacking】荷解き？０型の収納力を見せてやる！！！【Vtuber/白瀬あおい】
+                                </a>
                             </div>
-                        </a>
+                        </div>
 
-                        <a class="collapse-content">
+                        <div class="collapse-content">
                             <div class="collapse-content-static">
                                 <button id="a-yatchatta" type="button" class="btn btn-os-dark" onclick="playAudio(this.id, 'aoi')">
                                     <i class="fa-solid fa-headphones-simple"></i>
@@ -1121,20 +1268,29 @@
                                 </button>
                             </div>
                             <div class="collapse multi-collapse collapse-content-dynamic" id="yatchattaDesc">
-                                <iframe width="640" height="360" src="https://www.youtube-nocookie.com/embed/uBulRsxbJ6Q?start=2279" frameborder="0" allowfullscreen="1" title="【歌枠】はじめてのお歌、きいてくれますか？【新人Vtuber/白瀬あおい】" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
-                                
+                                <a href="https://youtu.be/uBulRsxbJ6Q&t=37m59s" target="_blank" rel="noreferrer noopener">
+                                    <i class="fa-brands fa-youtube me-1"></i>【歌枠】はじめてのお歌、きいてくれますか？【新人Vtuber/白瀬あおい】
+                                </a>
                             </div>
-                        </a>
+                        </div>
                     </div>
                 </section>
 
                 <!-- # Afterword -->
                 <section id="afterword">
                     <h2 class="title">後書き</h2>
-                    <p></p>
+                    <img src="./assets/img/afterword.webp" alt="Kemi icon" />
+                    <p class="mx-4">
+                        パンデミックな夏でしたね。<br><br>
+                        「白い髪のクマ？好きかも」と思ったのは、白瀬あおいのデビューを知った時のことでした。その時期はクラスに出るために寮から出る必要がなかったから、「いいじゃないか」。<br><br>
+                        その頃、時間に余裕があったので、それからは彼女の配信を見ることにしました。そして、彼女の歌の素晴らしさを知るやいなや、あまりの素晴らしさに、2021 年 5 月、彼女のアカペラ「ダダダダ天使」の <a href="https://twitter.com/ritmo_v0" target="_blank" rel="noreferrer noopener"><i class="fa-brands fa-twitter"></i>フルカバー</a> をミックスしてみました。きっかけはそれです。<br><br>
+                        あおいちゃんが「あおぐるみさんは、必ずしも何をする必要がない、ただ応援してくれるだけでも嬉しい」と言っていたのを思い出したのです。しかし、時が経ち、物事が軌道に乗ってくると、全ての配信、全てのアーカイブ、ツイート、ニュース、ファニコンの投稿をフォローすることはほぼ不可能になりました。時間を貢献できないので、自分ができること、つまり音楽やアニメーション（プロには程遠いですが）を提供するようになりました。そうしないと、自分が白瀬あおいの本当のファンではないような気がして、辛いのです。結構悪い癖ですね？<br><br>
+                        正直なところ、この 1 年間は予定が詰まっていて、アーカイブどころか、配信を 1 つも見ていません。それでも記念日や誕生日に企画を作るというのは不思議な感じがします。ここまでくると、Youtube の会員も、その後の Fanicon も辞めていたことも認めざるを得ません（金銭的な問題も絡んでいます、私の誕生日メッセージも RIP です）。「あなたは彼女を応援していますか？」「はい。」「彼女の配信を見ていますか？」「いいえ。」「では、どうして彼女のファンなのでしょうか？」「わかりません。」<br><br>
+                        心配しないで、他の人たちに比べてあまり活発ではありませんが、私はまたここにいます。このサイトは、あおぐるみからのお祝いを集めるためだけでなく、この 2 年間の思い出を振り返り、自分にとって本当に意味のあるものだったのか考えるために作りました。というか、悪い癖で「自分がやらなきゃいけない」かもしれません。早く答えが見つかればいいな。<br><br>
+                        最後に、デビュー 2 年目、おめでとうございます！あなたがこれを読んでいるとき、私はたぶん中間テスト中です（電子工学が苦手なので 🥺）。配信に参加できなくて申し訳ないです。アーカイブは必ずチェックします！<br><br>
+                        <span>リツモ、2023 / 04 / 20</span>
+                    </p>
                 </section>
-
-                
             </div>
         </main>
 

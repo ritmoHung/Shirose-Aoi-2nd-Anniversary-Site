@@ -444,10 +444,12 @@ section > h2 {
     margin-bottom: var(--gap-4);
 }
 section > img {
-    max-width: 80%;
+    max-width: 100%;
+    width: min(100%, 768px);
     display: block;
     margin: 0 auto;
     background: var(--bg-color);
+    border-radius: 1rem;
 }
 
 .titles {
@@ -537,7 +539,7 @@ i {
 .card .card-content {
     padding-bottom: var(--gap-2);
 }
-.card-content :first-child {
+.card-content span {
     text-align: center;
 }
 .card-content a {
@@ -545,6 +547,10 @@ i {
     color: var(--highlight-color);
     text-decoration: none;
     transition: all ease-in-out var(--trans-duration);
+}
+
+#afterword .card .card-content {
+    place-items: start !important;
 }
 
 @media screen and (max-width: 768px) {
@@ -577,7 +583,7 @@ i {
         padding-right: var(--gap-1);
         place-items: start;
     }
-    .card-content :first-child {
+    .card-content span {
         text-align: justify;
     }
 }
@@ -675,8 +681,10 @@ i {
 .collapse-content-dynamic iframe {
     width: min(560px, 75%);
 }
-.collapse-content-dynamic span {
+.collapse-content-dynamic a {
     place-self: start;
+    color: var(--highlight-color);
+    text-decoration: none;
 }
 
 @media screen and (min-width: 768px) {
@@ -689,7 +697,7 @@ i {
     .video-container .card-content {
         max-width: 40%;
     }
-    .collapse-content-dynamic span {
+    .collapse-content-dynamic a {
         margin-left: 2ch;
         margin-right: 2ch;
     }
@@ -702,6 +710,18 @@ i {
     .collapse-content-dynamic iframe {
         width: 100%;
     }
+}
+
+#afterword p {
+    color: var(--color-deep-blue);
+    text-align: justify;
+}
+#afterword a {
+    color: var(--highlight-color);
+    text-decoration: none;
+}
+#afterword p span {
+    float: right;
 }
 
 /* Buttons */
